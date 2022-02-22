@@ -21,13 +21,13 @@ class webhookDiscord {
         },  '---',  {
              opcode: 'test',
             blockType: Scratch.BlockType.COMMAND,
-            text: 'MessageSend [text]',
+            text: 'MessageSend: [comment]',
             "arguments": {
-                "text": {
-                  "type": Scratch.ArgumentType.STRING,
-                  "defaultValue":'foo',
-                }
+              "comment": {
+                "type": Scratch.ArgumentType.STRING,
+                "defaultValue": "foo",
               }
+            }
         },
       ]
     }  
