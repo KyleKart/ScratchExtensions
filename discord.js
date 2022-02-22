@@ -35,11 +35,11 @@ get({url}) {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({str: {
+        body: JSON.stringify({
             "username":"name",
             "avatar_url": "https://i.imgur.com/4M34hi2.png",
             "content":"message"
-        }})
+        })
       }).then(res => res.json())
         .then(res => console.log(res));
 };
