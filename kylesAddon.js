@@ -14,8 +14,12 @@ class kylesAddon {
             "url": {
               "type": Scratch.ArgumentType.STRING,
               "defaultValue": "https://reqbin.com/echo/get/json",
-            },
-            
+            }
+          }
+        },
+      ]
+    }  
+  }
 get({url}) {
     return fetch("https://api.allorigins.win/raw?url=" + url).then(response => response.text()).catch(err => 'ERROR');
   };
