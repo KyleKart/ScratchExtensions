@@ -18,7 +18,7 @@ class kylesAddon {
           }
         },  {
             opcode: 'test',
-            blockType: Scratch.BlockType.REPORTER,
+            blockType: Scratch.BlockType.COMMAND,
             text: 'idk',
             "arguments": {
               "test": {
