@@ -43,7 +43,7 @@ get({url}) {
         },
         body: JSON.stringify({
             "username":"name",
-            "content":args
+            "content":comment
         })
       }).then(res => res.json())
         .then(res => console.log(res));
