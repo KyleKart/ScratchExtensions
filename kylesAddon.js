@@ -33,9 +33,9 @@ class kylesAddon {
 get({url}) {
     return fetch("https://api.allorigins.win/raw?url=" + url).then(response => response.text()).catch(err => 'ERROR');
   };
-  test(url) {
+  test(args) {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", url);
+    xhr.open("POST", args);
     
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
