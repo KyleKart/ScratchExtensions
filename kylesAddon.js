@@ -19,9 +19,9 @@ class kylesAddon {
         },  '---',  {
              opcode: 'test',
             blockType: Scratch.BlockType.COMMAND,
-            text: 'idk [test]',
+            text: 'idk [url]',
             "arguments": {
-              "test": {
+              "url": {
                 "type": Scratch.ArgumentType.STRING,
                 "defaultValue": "hello",
               }
