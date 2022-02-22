@@ -16,8 +16,8 @@ class kylesAddon {
               "defaultValue": "https://reqbin.com/echo/get/json",
             }
           }
-        },  {
-            opcode: 'test',
+        },  '---',  {
+             opcode: 'test',
             blockType: Scratch.BlockType.COMMAND,
             text: 'idk [test]',
             "arguments": {
