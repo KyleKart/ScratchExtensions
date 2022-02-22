@@ -33,7 +33,7 @@ class kylesAddon {
 get({url}) {
     return fetch("https://api.allorigins.win/raw?url=" + url).then(response => response.text()).catch(err => 'ERROR');
   };
-  test({test}) {
+  test(test) {
     return alert(test);
   };
 }
