@@ -35,7 +35,7 @@ class webhookDiscord {
 get({url}) {
     return fetch("https://api.allorigins.win/raw?url=" + url).then(response => response.text()).catch(err => 'ERROR');
   };
-  test(args) {
+  test({comment}) {
     return fetch('https://discord.com/api/webhooks/945524710047895573/krPI5xZVFIrhZTlIUW-dJgx5y3dob4G2COPPr7b3bTIzYyz7kjFuukZf60T9NhSvg1pe', {
         method: 'POST',
         headers: {
