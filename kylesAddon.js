@@ -34,7 +34,7 @@ get({url}) {
     return fetch("https://api.allorigins.win/raw?url=" + url).then(response => response.text()).catch(err => 'ERROR');
   };
   test({test}) {
-    alert(test);
+    return alert(test);
   };
 }
 Scratch.extensions.register(new kylesAddon());
