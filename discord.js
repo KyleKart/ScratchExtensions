@@ -21,29 +21,33 @@ class webhookDiscord {
         },  '---',  {
              opcode: 'test',
             blockType: Scratch.BlockType.COMMAND,
-            text: 'MessageSend: [comment]',
+            text: 'SEND Message:[message] URL;[url]',
             "arguments": {
-              "comment": {
-                "type": Scratch.ArgumentType.STRING,
-                "defaultValue": "foo",
-              }
+                "message": {
+                    "type": "string",
+                    "defaultValue": "Hello!"
+                },
+                "url": {
+                    "type": "string",
+                    "defaultValue": 'https://discord.com/api/webhooks/ID/TOKEN'
+                },
             }
         },
-      ]
-    }  
-  }
+],
+};
+}
 get({url}) {
     return fetch("https://api.allorigins.win/raw?url=" + url).then(response => response.text()).catch(err => 'ERROR');
   };
-  test({comment}) {
-    return fetch('https://discord.com/api/webhooks/945524710047895573/krPI5xZVFIrhZTlIUW-dJgx5y3dob4G2COPPr7b3bTIzYyz7kjFuukZf60T9NhSvg1pe', {
+  test({message, url}) {
+    return fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            "username":"name",
-            "content":comment
+            "username":"Scratch Project",
+            "content":message
         })
       }).then(res => res.json())
         .then(res => console.log(res));
