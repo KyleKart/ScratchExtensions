@@ -47,6 +47,7 @@ get({url}) {
         },
         body: JSON.stringify({
             "username":"Scratch Project",
+            "avatar_url": "https://raw.githubusercontent.com/KyleKart/ScratchExtensions/gh-pages/pfp.png",
             "content":message
         })
       }).then(res => res.json())
