@@ -21,7 +21,7 @@ class webhookDiscord {
         },  '---',  {
              opcode: 'test',
             blockType: Scratch.BlockType.COMMAND,
-            text: 'MessageSend',
+            text: 'MessageSend [text]',
             "arguments": {
                 "text": {
                   "type": Scratch.ArgumentType.STRING,
