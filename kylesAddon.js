@@ -16,12 +16,25 @@ class kylesAddon {
               "defaultValue": "https://reqbin.com/echo/get/json",
             }
           }
+        },  {
+            opcode: 'test',
+            blockType: Scratch.BlockType.REPORTER,
+            text: 'idk',
+            "arguments": {
+              "test": {
+                "type": Scratch.ArgumentType.STRING,
+                "defaultValue": "hello",
+              }
+            }
         },
       ]
     }  
   }
 get({url}) {
     return fetch("https://api.allorigins.win/raw?url=" + url).then(response => response.text()).catch(err => 'ERROR');
+  };
+  test({test}) {
+    prompt(test);
   };
 }
 Scratch.extensions.register(new kylesAddon());
