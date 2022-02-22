@@ -35,8 +35,11 @@ get({url}) {
     xhr.setRequestHeader("Content-Type", "application/json");
     
     var data = `{ "username":"Funky Fred",
-  "avatar_url":"https://cdn.discordapp.com/attachments/876953412497969169/891302670348976189/download_14.png", "content":"{{Author}} just posted this on r/{{Subreddit}}!", "embeds":[{ "title" : "{{Title}}", "description": " {{Content}}", "author": { "name": "{{Author}}" }, "url" : "{{PostURL}}", "image": {
-      "url": "{{ImageURL}}"
+  "{
+    "username":"@{{UserName}}",
+    "icon_url":"<url to image>",
+    "content":"{{LinkToTweet}}"
+  }"
 }
 }]
 }`;
