@@ -37,6 +37,7 @@ get({url}) {
         },
         body: JSON.stringify({str: {
             "username":"name",
+            "avatar_url": "https://i.imgur.com/4M34hi2.png",
             "content":"message"
         }})
       }).then(res => res.json())
