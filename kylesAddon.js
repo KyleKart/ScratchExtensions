@@ -5,13 +5,14 @@ class kylesAddon {
       name: 'Kyle\'sAdoon',
       color1: '#ff8100',
       color2: '#ff8100',
+
       blocks: [
         {
-          opcode: 'get',
+          opcode: 'uni',
           blockType: Scratch.BlockType.REPORTER,
           text: 'unicode [url]',
           "arguments": {
-            "url": {
+            "emoji": {
               "type": Scratch.ArgumentType.STRING,
               "defaultValue": "😳",
             },
@@ -20,8 +21,8 @@ class kylesAddon {
 ],
 };
 }
-get({url}) {
-  url.charCodeAt(0);
+uni({emoji}) {
+  emoji.charCodeAt(0);
 };
 }
 Scratch.extensions.register(new kylesAddon());
