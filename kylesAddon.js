@@ -9,19 +9,19 @@ class kylesAddon {
         {
           opcode: 'get',
           blockType: Scratch.BlockType.REPORTER,
-          text: 'get [url]',
+          text: 'unicode [url]',
           "arguments": {
             "url": {
               "type": Scratch.ArgumentType.STRING,
-              "defaultValue": "https://reqbin.com/echo/get/json",
-            }
+              "defaultValue": "😳",
+            },
           }
-        },
-      ]
-    }  
-  }
+      },
+],
+};
+}
 get({url}) {
-    return fetch("https://api.allorigins.win/raw?url=" + url).then(response => response.text()).catch(err => 'ERROR');
-  };
+  url.charCodeAt(0);
+};
 }
 Scratch.extensions.register(new kylesAddon());
