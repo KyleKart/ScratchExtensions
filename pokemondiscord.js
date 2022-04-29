@@ -46,8 +46,6 @@ get({url}) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            "username":"Prof. Birch",
-            "avatar_url": "https://raw.githubusercontent.com/KyleKart/ScratchExtensions/gh-pages/pfp.png",
             "content":message
         })
       }).then(res => res.json())
