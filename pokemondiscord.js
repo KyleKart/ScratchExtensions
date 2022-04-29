@@ -3,9 +3,9 @@ class webhookDiscord {
       return {
         id: 'discord',
         name: 'DiscordWebhook',    
-        color1: '#5865F2',
-        color2: '#5865F2',
-        color3: '#5865F2',
+        color1: '#ffd500',
+        color2: '#ffd500',
+        color3: '#ffd500',
       
    blocks: [
         {
