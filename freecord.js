@@ -31,6 +31,10 @@ class webhookDiscord {
                     "type": "string",
                     "defaultValue": 'https://discord.com/api/webhooks/ID/TOKEN'
                 },
+                "token": {
+                    "type": "string",
+                    "defaultValue": 'TOKEN'
+                },
             }
         },
 ],
