@@ -46,7 +46,7 @@ test({message, url, token}) {
           'Content-Type': 'application/json',
           'Authorization' :token
         },
-        body: JSON.stringify({{
+        body: JSON.stringify({
         "content":message,
         "tts": false
         })
