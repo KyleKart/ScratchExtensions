@@ -8,16 +8,21 @@ class kylesAddon {
 
       blocks: [
         {
-          opcode: 'harper',
-          blockType: 'reporter',
-          text: 'AskHarper',
+          opcode: 'uni',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'unicode [url]',
+          "arguments": {
+            "emoji": {
+              "type": Scratch.ArgumentType.STRING,
+              "defaultValue": "?",
+            },
           }
       },
 ],
 };
 }
-harper {
-var gif = ["Yes.", "*Harper doesn't know.*", "Stop asking dumb questions.", "Without a doubt.", "Yes definitely.", "Most likely.", "I am too busy playing " + statusgame, "Nah.", "As I see it, yes.", "Signs point to go away.", "Ask again later, I am tired.", "Signs point to yes.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again", "Don't count on it.", "My reply is no.", "My sources say no.", "Outlook not so good.", "Very doubtful.", "Stop bugging me.", "Did you really just ask that?", "*Harper is bored*.", "*Yaaaawn*."]
+uni({emoji}) {
+  var gif = ["Yes.", "*Harper doesn't know.*", "Stop asking dumb questions.", "Without a doubt.", "Yes definitely.", "Most likely.", "I am too busy playing " + statusgame, "Nah.", "As I see it, yes.", "Signs point to go away.", "Ask again later, I am tired.", "Signs point to yes.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again", "Don't count on it.", "My reply is no.", "My sources say no.", "Outlook not so good.", "Very doubtful.", "Stop bugging me.", "Did you really just ask that?", "*Harper is bored*.", "*Yaaaawn*."]
   var randomResponse = gif[Math.floor(Math.random() * gif.length)];
 };
 }
