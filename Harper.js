@@ -9,7 +9,7 @@ class kylesAddon {
       blocks: [
         {
           opcode: 'harper',
-          blockType: Scratch.BlockType.REPORTER,
+          blockType: 'reporter',
           text: 'AskHarper',
           }
       },
