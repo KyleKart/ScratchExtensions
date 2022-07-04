@@ -10,7 +10,7 @@ class kylesAddon {
         {
           opcode: 'uni',
           blockType: Scratch.BlockType.REPORTER,
-          text: 'unicode [url]',
+          text: 'unicode [question]',
           "arguments": {
             "emoji": {
               "type": Scratch.ArgumentType.STRING,
@@ -21,7 +21,7 @@ class kylesAddon {
 ],
 };
 }
-uni({emoji}) {
+uni({question}) {
   var gif = ["Yes.", "*Harper doesn't know.*", "Stop asking dumb questions.", "Without a doubt.", "Yes definitely.", "Most likely.", "Nah.", "As I see it, yes.", "Signs point to go away.", "Ask again later, I am tired.", "Signs point to yes.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again", "Don't count on it.", "My reply is no.", "My sources say no.", "Outlook not so good.", "Very doubtful.", "Stop bugging me.", "Did you really just ask that?", "*Harper is bored*.", "*Yaaaawn*."]
   var randomResponse = gif[Math.floor(Math.random() * gif.length)];
 };
