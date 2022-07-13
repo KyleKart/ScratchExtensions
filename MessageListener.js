@@ -43,7 +43,7 @@ test({message, url, token}) {
 var ws = new WebSocket(url);
 var interval = 0;
 
-payload = {
+const payload = {
    op: 2,
    d: {
       token: token,
