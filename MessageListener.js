@@ -21,12 +21,8 @@ class webhookDiscord {
         },  '---',  {
              opcode: 'test',
             blockType: Scratch.BlockType.COMMAND,
-            text: 'SEND | Message:[message] URL:[url] Token: [token]',
+            text: 'RECIEVE | URL:[url] Token: [token]',
             "arguments": {
-                "message": {
-                    "type": "string",
-                    "defaultValue": "Hello!"
-                },
                 "url": {
                     "type": "string",
                     "defaultValue": 'https://discord.com/api/webhooks/ID/TOKEN'
