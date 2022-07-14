@@ -20,7 +20,7 @@ class webhookDiscord {
           }
         },  '---',  {
              opcode: 'test',
-            blockType: Scratch.BlockType.COMMAND,
+            blockType: Scratch.BlockType.REPORTER,
             text: 'RECIEVE | URL:[url] Token: [token]',
             "arguments": {
                 "url": {
