@@ -81,6 +81,7 @@ ws.addEventListener("message", function incoming(data) {
       // IF MESSAGE IS CREATED, IT WILL LOG IN THE CONSOLE
       case "MESSAGE_CREATE":
          return (d.author.username + ": " + d.content);
+         console.log(d.author.username + ": " + d.content);
    }
 });
 };
