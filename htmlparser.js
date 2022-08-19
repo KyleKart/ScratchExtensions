@@ -24,7 +24,7 @@ class htmlparser {
 uni({code}) {
   var parser = new DOMParser();
 var htmlDoc = parser.parseFromString(code, 'text/html');
-console.log(htmlDoc.getElementsByTagName( 'p' ))
+console.log(htmlDoc.getElementsByTagName( '*' ))
 };
 }
 Scratch.extensions.register(new htmlparser());
