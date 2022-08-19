@@ -1,3 +1,30 @@
-var parser = new DOMParser();
-var htmlDoc = parser.parseFromString("<html><head><title>titleTest</title></head><body><p>Hello World!</p></body></html>", 'text/html');
+class kylesAddon {
+  getInfo() {
+    return {
+      id: 'htmlparser',
+      name: 'HTMLParser',
+      color1: '#ff8100',
+      color2: '#ff8100',
+
+      blocks: [
+        {
+          opcode: 'uni',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'unicode [code]',
+          "arguments": {
+            "code": {
+              "type": Scratch.ArgumentType.STRING,
+              "defaultValue": "😳",
+            },
+          }
+      },
+],
+};
+}
+uni({code}) {
+  var parser = new DOMParser();
+var htmlDoc = parser.parseFromString(code, 'text/html');
 console.log(htmlDoc.getElementsByTagName( 'p' ).length)
+};
+}
+Scratch.extensions.register(new htmlparser());
