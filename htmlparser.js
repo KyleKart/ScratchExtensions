@@ -1,4 +1,4 @@
-class kylesAddon {
+class htmlparser {
   getInfo() {
     return {
       id: 'htmlparser',
