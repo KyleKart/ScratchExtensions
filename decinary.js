@@ -9,9 +9,9 @@ class decinary {
       
    blocks: [
         {
-          opcode: 'get',
+          opcode: 'decimal',
           blockType: Scratch.BlockType.REPORTER,
-          text: 'get [bin]',
+          text: 'decimal [bin]',
           "arguments": {
             "bin": {
               "type": Scratch.ArgumentType.STRING,
@@ -22,7 +22,7 @@ class decinary {
 ],
 };
 }
-get({bin}) {
+decimal({bin}) {
     const digit = parseInt(bin, 2);
     return digit
   };
