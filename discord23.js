@@ -32,7 +32,7 @@ class webhookDiscord {
                     "defaultValue": 'https://discord.com/api/webhooks/ID/TOKEN',
 
                 },
-                "url": {
+                "embed": {
                     "type": "string",
                     "defaultValue": 'false',
                     "menu": "embed",
