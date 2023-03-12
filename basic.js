@@ -59,20 +59,7 @@ get({url}) {
     return fetch("https://api.allorigins.win/raw?url=" + url).then(response => response.text()).catch(err => 'ERROR');
   };
   tf({input1, input2}) {
-    var text1 = "true"
-    var text2 = "false"
-
-    if (input1 == true);
-    var text1 = "true"
-    if (input1 == false);
-    var text1 = "false"
-
-    if (input2 == true);
-    var text2 = "true"
-    if (input2 == false);
-    var text2 = "false"
-
-    if (text1 == text2){
+    if (input1 == input2){
         return "true";
     }else
     return "true";
