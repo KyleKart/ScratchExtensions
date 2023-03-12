@@ -13,12 +13,12 @@ class BasicK {
             "input1": {
               "type": Scratch.ArgumentType.STRING,
               "defaultValue": "true",
-              "menu": "embed",
+              "menu": "input01",
             },
             "input2": {
                 "type": "string",
                 "defaultValue": 'false',
-                "menu": "embed",
+                "menu": "input02",
             },
           }
         },  '---',  {
@@ -44,10 +44,14 @@ class BasicK {
         },
 ],
 menus: {
-    embed: {
+    input01: {
         acceptReporters: true,
         items: [{ text: "true", value: "true"}, {text: "false", value: "false"}]
     }
+},
+input02: {
+    acceptReporters: true,
+    items: [{ text: "true", value: "true"}, {text: "false", value: "false"}]
 }
 };
 }
