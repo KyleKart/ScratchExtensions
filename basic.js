@@ -8,13 +8,14 @@ class BasicK {
         {
           opcode: 'get',
           blockType: Scratch.BlockType.BOOLEAN,
-          text: '[input] [true]',
+          text: '[input1] = [input2]',
           "arguments": {
-            "input": {
+            "input1": {
               "type": Scratch.ArgumentType.STRING,
-              "defaultValue": "",
+              "defaultValue": "true",
+              "menu": "embed",
             },
-            "true": {
+            "input2": {
                 "type": "string",
                 "defaultValue": 'false',
                 "menu": "embed",
@@ -53,11 +54,10 @@ menus: {
 get({url}) {
     return fetch("https://api.allorigins.win/raw?url=" + url).then(response => response.text()).catch(err => 'ERROR');
   };
-  test({input, embed}) {
-    if (embed){
-       return true 
-    }else
-    return false
+  test({input1, input2}) {
+    if (input1 == input2){
+        return "true"
+    }
 };
 }
 Scratch.extensions.register(new BasicK());
