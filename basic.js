@@ -19,7 +19,7 @@ class BasicK {
                 "type": "string",
                 "defaultValue": 'false',
                 "menu": "input02",
-            },
+            }
           }
         },
 ],
@@ -39,7 +39,7 @@ input02: {
     if (input1 == input2){
         return "true";
     }else
-    return "true";
+    return "false";
 };
 }
 Scratch.extensions.register(new BasicK());
