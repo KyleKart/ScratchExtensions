@@ -51,7 +51,11 @@ get({url}) {
             "content":message
         })
       }).then(res => res.json())
-        .then(res => console.log(res));
+        .then(res => console.log(res))
+        .catch( err => {
+        console.log(err);
+        })
+        
 };
 }
 Scratch.extensions.register(new webhookDiscord());
