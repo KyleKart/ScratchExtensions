@@ -11,7 +11,7 @@ class BasicK {
           text: '[input] [true]',
           "arguments": {
             "input": {
-              "type": Scratch.ArgumentType.STRING,
+              "type": Scratch.ArgumentType.BOOLEAN,
               "defaultValue": "",
             },
             "true": {
