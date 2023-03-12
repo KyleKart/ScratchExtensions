@@ -59,14 +59,23 @@ get({url}) {
     return fetch("https://api.allorigins.win/raw?url=" + url).then(response => response.text()).catch(err => 'ERROR');
   };
   tf({input1, input2}) {
-    if (input1 == input2){
-        console.log("Input 1:" + input1)
-        console.log("Input 2:" + input2)
-        return true;
+    var text1 = "true"
+    var text2 = "false"
+
+    if (input1 == true);
+    var text1 = "true"
+    if (input1 == false);
+    var text1 = "false"
+
+    if (input2 == true);
+    var text2 = "true"
+    if (input2 == false);
+    var text2 = "false"
+
+    if (text1 == text2){
+        return "true";
     }else
-    console.log("Input 1:" + input1)
-    console.log("Input 2:" + input2)
-    return false;
+    return "true";
 };
 }
 Scratch.extensions.register(new BasicK());
