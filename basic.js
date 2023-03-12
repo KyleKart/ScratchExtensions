@@ -56,8 +56,12 @@ get({url}) {
   };
   tf({input1, input2}) {
     if (input1 == input2){
+        console.log("Input 1:" + input1)
+        console.log("Input 2:" + input2)
         return true;
     }else
+    console.log("Input 1:" + input1)
+    console.log("Input 2:" + input2)
     return false;
 };
 }
