@@ -6,7 +6,7 @@ class BasicK {
       
    blocks: [
         {
-          opcode: 'get',
+          opcode: 'tf',
           blockType: Scratch.BlockType.BOOLEAN,
           text: '[input1] = [input2]',
           "arguments": {
@@ -54,11 +54,11 @@ menus: {
 get({url}) {
     return fetch("https://api.allorigins.win/raw?url=" + url).then(response => response.text()).catch(err => 'ERROR');
   };
-  test({input1, input2}) {
+  tf({input1, input2}) {
     if (input1 == input2){
-        return true
+        return true;
     }else
-    return false
+    return false;
 };
 }
 Scratch.extensions.register(new BasicK());
