@@ -21,26 +21,6 @@ class BasicK {
                 "menu": "embed",
             },
           }
-        },  '---',  {
-             opcode: 'test',
-            blockType: Scratch.BlockType.COMMAND,
-            text: 'SEND | Message:[message] URL:[url] Embed:[embed]',
-            "arguments": {
-                "message": {
-                    "type": "string",
-                    "defaultValue": "Hello!",
-                },
-                "url": {
-                    "type": "string",
-                    "defaultValue": 'https://discord.com/api/webhooks/ID/TOKEN',
-
-                },
-                "true": {
-                    "type": "string",
-                    "defaultValue": 'false',
-                    "menu": "embed",
-                },
-            }
         },
 ],
 menus: {
@@ -51,14 +31,11 @@ menus: {
 }
 };
 }
-get({url}) {
-    return fetch("https://api.allorigins.win/raw?url=" + url).then(response => response.text()).catch(err => 'ERROR');
-  };
   test({input1, input2}) {
     if (input1 == input2){
-        return "true"
+        return true;
     } else
-    return "false"
+    return false;
 };
 }
 Scratch.extensions.register(new BasicK());
