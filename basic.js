@@ -6,12 +6,12 @@ class BasicK {
       
    blocks: [
         {
-          opcode: 'get',
+          opcode: 'tf',
           blockType: Scratch.BlockType.BOOLEAN,
           text: '[input1] = [input2]',
           "arguments": {
             "input1": {
-              "type": Scratch.ArgumentType.STRING,
+              "type": "string",
               "defaultValue": "true",
               "menu": "embed",
             },
@@ -30,12 +30,12 @@ menus: {
     }
 }
 };
-}
-  test({input1, input2}) {
-    if (input1 == input2){
-        return true;
+    }
+  tf({input1, input2}) {
+    if (input1 == input2) {
+        return true
     } else
-    return false;
+    return false
 };
 }
 Scratch.extensions.register(new BasicK());
