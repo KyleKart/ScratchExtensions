@@ -3,7 +3,9 @@ class BasicK {
       return {
         id: 'basick',
         name: 'Basic_K',    
-      
+        color1: '#389438',
+        color2: '#276627',
+
    blocks: [
         {
           opcode: 'tf',
