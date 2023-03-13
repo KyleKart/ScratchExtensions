@@ -22,7 +22,7 @@ class BasicK {
             },
             "input3": {
                 "type": "string",
-                "defaultValue": '×',
+                "defaultValue": '_',
                 "menu": "options2",
             },
           }
@@ -35,7 +35,7 @@ menus: {
     },
     options2: {
         acceptReporters: true,
-        items: [{ text: "×", value: "×"}, { text: "true", value: "true"}, {text: "false", value: "false"}, { text: "1", value: "1"}, {text: "0", value: "0"}]
+        items: [{ text: "_", value: "_"}, { text: "true", value: "true"}, {text: "false", value: "false"}, { text: "1", value: "1"}, {text: "0", value: "0"}]
     }
 }
 };
@@ -58,7 +58,7 @@ menus: {
     console.log("After: " + text3);
     if (text1 == text2 && text2 == text3) {
         return "true"
-    } else if (text1 == text2 && text3 == "×") {
+    } else if (text1 == text2 && text3 == "_") {
     return "true"
     } else 
         return "false"
