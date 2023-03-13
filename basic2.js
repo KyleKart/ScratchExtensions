@@ -31,7 +31,7 @@ class BasicK {
 menus: {
     embed: {
         acceptReporters: true,
-        items: [{ text: "true", value: "true"}, { text: "true", value: "true"}, {text: "false", value: "false"}, { text: "1", value: "1"}, {text: "0", value: "0"}]
+        items: [{ text: " ", value: " "}, { text: "true", value: "true"}, {text: "false", value: "false"}, { text: "1", value: "1"}, {text: "0", value: "0"}]
     }
 }
 };
@@ -56,9 +56,8 @@ menus: {
         return "true"
     } else if (text1 == text2 && text3 == " ") {
     return "true"
-    } else if (text1 !== text2 || text2 !== text3) {
+    } else 
         return "false"
-    }
 };
 }
 Scratch.extensions.register(new BasicK());
