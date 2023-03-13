@@ -13,23 +13,27 @@ class BasicK {
             "input1": {
               "type": "string",
               "defaultValue": "true",
-              "menu": "embed",
+              "menu": "options1",
             },
             "input2": {
                 "type": "string",
                 "defaultValue": 'false',
-                "menu": "embed",
+                "menu": "options1",
             },
             "input3": {
                 "type": "string",
                 "defaultValue": '×',
-                "menu": "embed",
+                "menu": "options2",
             },
           }
         },
 ],
 menus: {
-    embed: {
+    options1: {
+        acceptReporters: true,
+        items: [{ text: "true", value: "true"}, {text: "false", value: "false"}, { text: "1", value: "1"}, {text: "0", value: "0"}]
+    },
+    options2: {
         acceptReporters: true,
         items: [{ text: "×", value: "×"}, { text: "true", value: "true"}, {text: "false", value: "false"}, { text: "1", value: "1"}, {text: "0", value: "0"}]
     }
