@@ -29,6 +29,21 @@ class cursedBlocks {
               },
             }
           },
+          {
+            opcode: 'secoo',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'wait [sec] secꝏ [input]',
+            "arguments": {
+              "sec": {
+                "type": "string",
+                "defaultValue": "1",
+              },
+              "input": {
+                "type": "string",
+                "defaultValue": "0",
+              },
+            }
+          },
 ],
 menus: {
     options1: {
