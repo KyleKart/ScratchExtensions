@@ -66,7 +66,7 @@ menus: {
         acceptReporters: true,
         items: [{ text: " ", value: " "}]
     }, 
-    options1: {
+    options2: {
         acceptReporters: true,
         items: [{ text: "a", value: "a"}]
     }, 
