@@ -30,4 +30,4 @@ menus: {
 
 };
 }
-Scratch.extensions.register(new BasicK());
+Scratch.extensions.register(new cursedBlocks());
