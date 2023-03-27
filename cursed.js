@@ -12,7 +12,7 @@ class cursedBlocks {
           "arguments": {
             "input1": {
               "type": "string",
-              "defaultValue": "true",
+              "defaultValue": "",
               "menu": "options1",
             },
           }
