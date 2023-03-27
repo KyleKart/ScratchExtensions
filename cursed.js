@@ -17,6 +17,18 @@ class cursedBlocks {
             },
           }
         },
+        {
+            opcode: 'nds',
+            blockType: Scratch.BlockType.BLOCK,
+            text: 'go to x: nds',
+            "arguments": {
+              "input1": {
+                "type": "string",
+                "defaultValue": "true",
+                "menu": "options1",
+              },
+            }
+          },
 ],
 menus: {
     options1: {
