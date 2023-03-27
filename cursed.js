@@ -51,7 +51,7 @@ class cursedBlocks {
             "arguments": {
                 "a": {
                     "type": "string",
-                    "defaultValue": "true",
+                    "defaultValue": "a",
                     "menu": "options2",
                   },
               "noomber": {
@@ -67,7 +67,7 @@ menus: {
         items: [{ text: " ", value: " "}]
     }, 
     options2: {
-        acceptReporters: true,
+        acceptReporters: false,
         items: [{ text: "a", value: "a"}]
     }, 
 } 
