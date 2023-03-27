@@ -19,7 +19,7 @@ class cursedBlocks {
         },
         {
             opcode: 'nds',
-            blockType: Scratch.BlockType.BLOCK,
+            blockType: Scratch.BlockType.COMMAND,
             text: 'go to x: nds',
             "arguments": {
               "input1": {
