@@ -44,11 +44,31 @@ class cursedBlocks {
               },
             }
           },
+          {
+            opcode: 'stop',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'stop [a] by [noomber]',
+            "arguments": {
+                "a": {
+                    "type": "string",
+                    "defaultValue": "true",
+                    "menu": "options2",
+                  },
+              "noomber": {
+                "type": "string",
+                "defaultValue": "1",
+              },
+            }
+          },
 ],
 menus: {
     options1: {
         acceptReporters: true,
         items: [{ text: " ", value: " "}]
+    }, 
+    options1: {
+        acceptReporters: true,
+        items: [{ text: "a", value: "a"}]
     }, 
 } 
 };
