@@ -60,6 +60,18 @@ class cursedBlocks {
               },
             }
           },
+          {
+            opcode: 'theceive',
+            blockType: Scratch.BlockType.HAT,
+            text: 'when theceive [event]',
+            "arguments": {
+                "a": {
+                    "type": "event",
+                    "defaultValue": "",
+                    "menu": "options1",
+                  },
+            }
+          },
 ],
 menus: {
     options1: {
