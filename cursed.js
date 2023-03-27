@@ -68,7 +68,7 @@ class cursedBlocks {
                 "event": {
                     "type": "string",
                     "defaultValue": "",
-                    "menu": "options1",
+                    "menu": "options3",
                   },
             }
           },
@@ -82,6 +82,10 @@ menus: {
         acceptReporters: false,
         items: [{ text: "a", value: "a"}]
     }, 
+    options3: {
+      acceptReporters: false,
+      items: [{ text: " ", value: " "}]
+  }, 
 } 
 };
     }
