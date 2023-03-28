@@ -46,7 +46,7 @@ class cursedBlocks {
           {
             opcode: 'stop',
             blockType: Scratch.BlockType.COMMAND,
-            terminal: true,
+            isTerminal: true,
             text: 'stop [a] by [noomber]',
             "arguments": {
                 "a": {
