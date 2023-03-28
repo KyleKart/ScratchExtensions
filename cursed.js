@@ -90,7 +90,14 @@ menus: {
 };
     }
   touchie({input1}) {
-return (input1);
-};
+    const sprites = Scratch.vm.runtime.targets.filter(target => target.isSprite);
+
+    sprites.forEach(sprite => {
+      const option = document.createElement('option');
+      option.value = sprite.sprite.name;
+      option.text = sprite.sprite.name;
+      options1.items[0].menu.add(option);
+    });
+  };
 }
 Scratch.extensions.register(new cursedBlocks());
