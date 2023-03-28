@@ -90,7 +90,7 @@ menus: {
 };
     }
   touchie({input1}) {
-
+return (input1);
 };
 }
 Scratch.extensions.register(new cursedBlocks());
