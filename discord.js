@@ -26,11 +26,11 @@ class Discord {
                 },
                 "pfp": {
                   "type": "string",
-                  "defaultValue": 'https://discord.com/api/webhooks/ID/TOKEN'
+                  "defaultValue": 'https://raw.githubusercontent.com/KyleKart/ScratchExtensions/gh-pages/pfp.png'
               },
               "name": {
                 "type": "string",
-                "defaultValue": 'https://discord.com/api/webhooks/ID/TOKEN'
+                "defaultValue": 'Scratch Project'
             },
             }
         },
