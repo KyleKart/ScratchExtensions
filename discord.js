@@ -24,6 +24,14 @@ class Discord {
                     "type": "string",
                     "defaultValue": 'https://discord.com/api/webhooks/ID/TOKEN'
                 },
+                "pfp": {
+                  "type": "string",
+                  "defaultValue": 'https://discord.com/api/webhooks/ID/TOKEN'
+              },
+              "name": {
+                "type": "string",
+                "defaultValue": 'https://discord.com/api/webhooks/ID/TOKEN'
+            },
             }
         },
         {
