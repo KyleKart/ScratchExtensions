@@ -13,7 +13,7 @@ class Discord {
         {
              opcode: 'webhook',
             blockType: Scratch.BlockType.COMMAND,
-            text: 'Message:[message] URL:[url]',
+            text: 'Name: [name] PFP: [pfp] Message:[message] URL:[url]',
             blockIconURI: webhookIcon,
             "arguments": {
                 "message": {
@@ -49,15 +49,19 @@ class Discord {
 ],
 };
     }
-  webhook({message, url}) {
+  webhook({name, pfp, message, url}) {
+    var DCname = name
+    var DCpfp = pfp
+  if (name == "") DCname = "Scratch Project";
+  if (pfp == "") DCpfp = "https://raw.githubusercontent.com/KyleKart/ScratchExtensions/gh-pages/pfp.png";
     return fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            "username":"Scratch Project",
-            "avatar_url": "https://raw.githubusercontent.com/KyleKart/ScratchExtensions/gh-pages/pfp.png",
+            "username":DCname,
+            "avatar_url": DCpfp,
             "content":message
         })
       }).then(res => res.json())
