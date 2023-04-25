@@ -1,3 +1,6 @@
+//this is just a re-upload of http://pruss.mobi/js/rjm.js
+//full credits go the original creator of the MC mod + extension
+
 class RJMTurtle {
     constructor() {
         this.block = "1";
