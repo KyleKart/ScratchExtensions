@@ -46,7 +46,7 @@ class Discord {
              },
              "url": {
                  "type": "string",
-                 "defaultValue": 'https://canary.discord.com/api/v9/channels/ID/messages'
+                 "defaultValue": 'https://discord.com/api/v9/channels/ID/messages'
              },
              "token": {
                  "type": "string",
