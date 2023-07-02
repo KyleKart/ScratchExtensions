@@ -34,7 +34,7 @@
               {
                 opcode: 'pitchanoReporter',
                 blockType: Scratch.BlockType.REPORTER,
-                text: '[OPTION][NOTE]',
+                text: 'note [NOTE] to [OPTION]',
                 arguments: {
                   NOTE: {
                     type: Scratch.ArgumentType.NOTE,
