@@ -22,6 +22,7 @@ class ScratchBetaBlocks {
             blockType: Scratch.BlockType.HAT,
             text: 'when I receive message [EVENT_OPTION]',
             isEdgeActivated: false,
+            hideFromPalette: true,
             arguments: {
               EVENT_OPTION: {
                 type: Scratch.ArgumentType.STRING,
@@ -38,8 +39,6 @@ class ScratchBetaBlocks {
               EVENT: {
                 type: Scratch.ArgumentType.STRING,
                 defaultValue: 'go',
-                menu: 'EVENT_FIELD'
-
               }
             }
           },
@@ -139,11 +138,17 @@ console.log("New Costume Index:", targetSprite.currentCostume + amount);
         util.startHats('scratchbeta_whenReceived', {
           EVENT_OPTION: EVENT
         });
+        util.startHats("event_whenbroadcastreceived", {
+          BROADCAST_OPTION: EVENT
+      });
       }      
       else {
         util.startHats('scratchbeta_whenReceived', {
           EVENT_OPTION: EVENT
         });
+        util.startHats("event_whenbroadcastreceived", {
+          BROADCAST_OPTION: EVENT
+      });
            }
     }
   
