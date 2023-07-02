@@ -2,6 +2,19 @@
     <meta content="ElmoBear's Extensions" property="og:title">
     <meta content="Scratch extensions that I have made which I am proud of or happy with!" property="og:description">
     <meta content="https://kylekart.github.io/ScratchExtensions/" property="og:url">
+    <script>
+      function downloadFile() {
+        const url = "https://kylekart.github.io/ScratchExtensions/get/pitchano.js";
+        const fileName = "pitchano.js";
+        const link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.setAttribute("download", fileName);
+        link.style.display = "none";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+      </script>
 <style>
 
 :root {
@@ -141,10 +154,11 @@ p {
           <div>ElmoBear's Extensions</div>
         </h1>
         <p>Scratch extensions that I have made which I am proud of or happy with!</p>
+        <p>Using the links usually wont work as most of these need to be run unsandboxed. <br> You'll need to either save the file or copy its text.</p>
       </div>
     <div class="section extensions-outer">
         <div class="extensions">
-          <a href="https://kylekart.github.io/ScratchExtensions/get/pitchano.js" download>
+          <a href="https://kylekart.github.io/ScratchExtensions/get/pitchano.js">
             <div class="pitchano">
               <div class="extension">
                 <h3>Pitchano</h3>
@@ -153,7 +167,7 @@ p {
               <h5>• 2023 •<br>• in development •</h5>
             </div>
           </a>
-          <a href="https://kylekart.github.io/ScratchExtensions/get/legacy.js" download>
+          <a href="https://kylekart.github.io/ScratchExtensions/get/legacy.js">
             <div class="legacy-blocks">
               <div class="extension">
                 <h3>Legacy Blocks</h3>
@@ -162,7 +176,7 @@ p {
               <h5>• 2023 •<br>• in development •</h5>
             </div>
           </a>
-          <a href="https://kylekart.github.io/ScratchExtensions/get/operators.js" download>
+          <a href="https://kylekart.github.io/ScratchExtensions/get/operators.js">
             <div class="operators">
               <div class="extension">
                 <h3>Operators</h3>
@@ -171,7 +185,7 @@ p {
               <h5>• 2023 •<br>• in early development •</h5>
             </div>
           </a>
-          <a href="https://kylekart.github.io/ScratchExtensions/get/discord.js" download>
+          <a href="https://kylekart.github.io/ScratchExtensions/get/discord.js">
             <div class="discord">
       <div class="extension">
         <h3>Discord</h3>
