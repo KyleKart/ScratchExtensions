@@ -87,7 +87,7 @@ bot({message, url, token}) {
         'Authorization' :token
       },
       body: JSON.stringify({
-      "content":message,
+      "content":"Bot" + message,
       "tts": false
       })
     }).then(res => res.json())
