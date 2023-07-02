@@ -84,7 +84,7 @@ bot({message, url, token}) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization' :"Bot " + token
+      'Authorization': `Bot ${token}`
       },
       body: JSON.stringify({
       "content":message,
