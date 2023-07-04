@@ -146,7 +146,7 @@ console.log("New Costume Index:", targetSprite.currentCostume + amount);
           EVENT_OPTION: EVENT
         });
         util.startHats("event_whenbroadcastreceived", {
-          BROADCAST_OPTION: broadcast
+          BROADCAST_OPTION: EVENT
       });
            }
     }
