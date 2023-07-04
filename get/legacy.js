@@ -20,7 +20,7 @@ class ScratchBetaBlocks {
           {
             opcode: 'whenReceived',
             blockType: Scratch.BlockType.HAT,
-            text: 'when I receive message [EVENT_OPTION]',
+            text: 'when [EVENT_OPTION] shouted',
             isEdgeActivated: false,
             hideFromPalette: true,
             arguments: {
@@ -34,11 +34,12 @@ class ScratchBetaBlocks {
           {
             opcode: 'broadcast',
             blockType: Scratch.BlockType.COMMAND,
-            text: 'broadcast message [EVENT]',
+            text: 'shout [EVENT]',
             arguments: {
               EVENT: {
                 type: Scratch.ArgumentType.STRING,
                 defaultValue: 'go',
+                menu: 'EVENT_FIELD',
               }
             }
           },
@@ -86,9 +87,7 @@ class ScratchBetaBlocks {
             acceptReporters: false,
             items: [
               'go',
-              'Event 1',
-              'Event 2',
-              'Event 3'
+              'setup',
             ]
           },
         }
@@ -147,7 +146,7 @@ console.log("New Costume Index:", targetSprite.currentCostume + amount);
           EVENT_OPTION: EVENT
         });
         util.startHats("event_whenbroadcastreceived", {
-          BROADCAST_OPTION: EVENT
+          BROADCAST_OPTION: broadcast
       });
            }
     }
