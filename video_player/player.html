@@ -1,0 +1,36 @@
+<style>
+    .video-container {
+      width: 100%;
+      height: 0;
+    }
+  
+    .video-container video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+  </style>
+  
+  <div class="video-container">
+    <video id="myPlayer" controls>
+      <source src="movie.mp4" type="video/mp4">
+      <source src="movie.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  
+  <script>window.addEventListener("message", event => {
+    if (event.data === "Play") {
+      const videoElement = document.querySelector("video");
+      if (videoElement) {
+        videoElement.play(); // Play the video
+      }
+    } else if (event.data === "Pause") {
+      const videoElement = document.querySelector("video");
+      if (videoElement) {
+        videoElement.pause(); // Pause the video
+      }
+    }
+  });</script>
