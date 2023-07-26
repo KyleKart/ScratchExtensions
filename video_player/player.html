@@ -37,6 +37,7 @@
     if (videoSourceElement) {
       videoSourceElement.setAttribute("src", newSource);
       const videoElement = document.getElementById("myVideo");
+alert(newSource);
       if (videoElement) {
         videoElement.load(); // Reload the video with the new source
       }
