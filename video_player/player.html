@@ -14,23 +14,32 @@
   </style>
   
   <div class="video-container">
-    <video id="myPlayer" controls>
-      <source src="movie.mp4" type="video/mp4">
-      <source src="movie.ogg" type="video/ogg">
+<video id="myVideo" controls>
+  <source id="videoSource" src="movie.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
   
   <script>window.addEventListener("message", event => {
-    if (event.data === "Play") {
-      const videoElement = document.querySelector("video");
+  if (event.data === "Play") {
+    const videoElement = document.getElementById("myVideo");
+    if (videoElement) {
+      videoElement.play(); // Play the video
+    }
+  } else if (event.data === "Pause") {
+    const videoElement = document.getElementById("myVideo");
+    if (videoElement) {
+      videoElement.pause(); // Pause the video
+    }
+  } else if (event.data.message === "setVideoURL") {
+    const newSource = event.data.url; // Retrieve the new video source URL from the message
+    const videoSourceElement = document.getElementById("videoSource");
+    if (videoSourceElement) {
+      videoSourceElement.setAttribute("src", newSource);
+      const videoElement = document.getElementById("myVideo");
       if (videoElement) {
-        videoElement.play(); // Play the video
-      }
-    } else if (event.data === "Pause") {
-      const videoElement = document.querySelector("video");
-      if (videoElement) {
-        videoElement.pause(); // Pause the video
+        videoElement.load(); // Reload the video with the new source
       }
     }
-  });</script>
+  }
+});</script>
