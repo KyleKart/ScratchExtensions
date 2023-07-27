@@ -42,5 +42,15 @@ alert(newSource);
         videoElement.load(); // Reload the video with the new source
       }
     }
-  }
+      } else if (event.data.message === "SetControls") {
+  const control = event.data.Controls;
+  const videoElement = document.getElementById("myVideo");
+  // Set the received control as an attribute to the video element
+  videoElement.setAttribute(control, "");
+} else if (event.data.message === "RemoveControls") {
+  const control = event.data.Controls;
+  const videoElement = document.getElementById("myVideo");
+  // Set the received control as an attribute to the video element
+  videoElement.removeAttribute(control);
+}
 });</script>
