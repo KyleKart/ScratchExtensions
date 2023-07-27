@@ -32,7 +32,7 @@
       videoElement.pause(); // Pause the video
     }
   } else if (event.data.message === "setVideoURL") {
-    const newSource = event.data.URL; // Retrieve the new video source URL from the message
+    const newSource = event.data.VidURL; // Retrieve the new video source URL from the message
     const videoSourceElement = document.getElementById("videoSource");
     if (videoSourceElement) {
       videoSourceElement.setAttribute("src", newSource);
