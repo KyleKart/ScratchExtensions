@@ -49,8 +49,6 @@ class ScratchBetaBlocks {
             opcode: 'costumebyone',
             blockType: Scratch.BlockType.COMMAND,
             text: 'change costume by [numero]',
-            color1: '#63b9ee',
-            color: '#63b9ee',
             arguments: {
               numero: {
                 type: 'number',
