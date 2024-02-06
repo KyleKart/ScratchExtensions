@@ -14,19 +14,20 @@ class ScratchBetaBlocks {
       return {
         id: 'scratchbeta',
         name: 'Legacy Blocks',
-        color1: '#63b5ce',
+        color1: '#60b0c8',
         blocks: [
           makeLabel('Control'),       
           {
             opcode: 'whenReceived',
-            blockType: Scratch.BlockType.HAT,
+            blockType: Scratch.BlockType.EVENT,
             text: 'when [EVENT_OPTION] shouted',
             isEdgeActivated: false,
-            hideFromPalette: true,
+            hideFromPalette: false,
+            color1: '#9800c8',
             arguments: {
               EVENT_OPTION: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: 'Event 1',
+                defaultValue: 'go',
                 menu: 'EVENT_FIELD'
               }
             }
@@ -42,6 +43,33 @@ class ScratchBetaBlocks {
                 menu: 'EVENT_FIELD',
               }
             }
+          },
+          {
+            opcode: 'whenWaves',
+            blockType: Scratch.BlockType.EVENT,
+            text: 'when [EVENT_OPTION] waves',
+            isEdgeActivated: false,
+            hideFromPalette: false,
+            color1: '#9800c8',
+            arguments: {
+              EVENT_OPTION: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: '🟦',
+                menu: 'FLAG_FIELD'
+              }
+            }
+          },
+          {
+            opcode: 'flagwave',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'wave [EVENT]',
+            arguments: {
+              EVENT: {
+                type: 'string',
+                defaultValue: '🟦',
+                menu: 'FLAG_FIELD',
+              },
+            },
           },
 
           makeLabel('Looks'),       
@@ -86,6 +114,19 @@ class ScratchBetaBlocks {
             items: [
               'go',
               'setup',
+            ]
+          },
+          FLAG_FIELD: {
+            acceptReporters: false,
+            items: [
+              '🟥',
+              '🟧',
+              '🟨',
+              '🟩',
+              '🟪',
+              '🟦',
+              '🏳️',
+              '🏴',
             ]
           },
         }
@@ -147,6 +188,12 @@ console.log("New Costume Index:", targetSprite.currentCostume + amount);
           BROADCAST_OPTION: EVENT
       });
            }
+    }
+
+    flagwave({EVENT}, util) {
+        util.startHats('scratchbeta_whenWaves', {
+          EVENT_OPTION: EVENT
+        });
     }
   
     }
