@@ -121,6 +121,15 @@ class ScratchBetaBlocks {
               },
             },
           },
+          makeLabel('Sensing'),   
+          {
+            opcode: "bisClone",
+            blockType: Scratch.BlockType.BOOLEAN,
+            text: "is clone?",
+            color1: '#6088b0',
+            filter: [Scratch.TargetType.SPRITE],
+            disableMonitor: true,
+          },
         ],   
         menus: {
           EVENT_FIELD: {
@@ -221,6 +230,10 @@ console.log("New Background Index:", targetSprite.currentCostume + amount);
         });
     }
   
+    bisClone(args, util) {
+      return !util.target.isOriginal;
+    }
+
     }
   
   Scratch.extensions.register(new ScratchBetaBlocks());
