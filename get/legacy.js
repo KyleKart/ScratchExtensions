@@ -113,7 +113,7 @@ class ScratchBetaBlocks {
             opcode: 'rewindSound',
             blockType: Scratch.BlockType.COMMAND,
             text: 'rewind sound [SOUND_MENU]',
-            hideFromPalette: false,
+            hideFromPalette: true,
             arguments: {
               SOUND_MENU: {
                 type: 'string',
