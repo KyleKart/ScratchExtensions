@@ -76,7 +76,20 @@ class ScratchBetaBlocks {
           {
             opcode: 'costumebyone',
             blockType: Scratch.BlockType.COMMAND,
-            text: 'change costume by [numero]',
+            text: (vm.editingTarget?.isStage) ? "change background by [numero]" : "change costume by [numero]",
+            filter: [Scratch.TargetType.SPRITE],
+            arguments: {
+              numero: {
+                type: 'number',
+                defaultValue: '1',
+              },
+            },
+          },
+          {
+            opcode: 'backgroundbyone',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'change background by [numero]',
+            filter: [Scratch.TargetType.STAGE],
             arguments: {
               numero: {
                 type: 'number',
@@ -87,6 +100,7 @@ class ScratchBetaBlocks {
           {
             opcode: 'sayNothing',
             blockType: Scratch.BlockType.COMMAND,
+            filter: [Scratch.TargetType.SPRITE],
             text: 'say nothing',
           },
           makeLabel('Media'),   
@@ -95,11 +109,11 @@ class ScratchBetaBlocks {
             blockType: Scratch.BlockType.COMMAND,
             text: 'beep',
           },
-          makeLabel('Unfinished'),       
          {
             opcode: 'rewindSound',
             blockType: Scratch.BlockType.COMMAND,
             text: 'rewind sound [SOUND_MENU]',
+            hideFromPalette: false,
             arguments: {
               SOUND_MENU: {
                 type: 'string',
@@ -147,6 +161,17 @@ class ScratchBetaBlocks {
 console.log("New Costume Index:", targetSprite.currentCostume + amount);
         }
     }
+    backgroundbyone(args, util) {
+      const amount = Math.floor(Number(args.numero));
+      console.log(amount);
+      const targetSprite = util.target;
+    
+      if (!isNaN(amount) && targetSprite) {
+          targetSprite.setCostume(targetSprite.currentCostume + amount);
+          console.log("Current Background Index:", targetSprite.currentCostume);
+console.log("New Background Index:", targetSprite.currentCostume + amount);
+      }
+  }
       
     rewindSound(args) {
         const soundName = args.SOUND_MENU;
