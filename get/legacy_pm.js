@@ -15,6 +15,8 @@
           id: 'scratchbeta',
           name: 'Legacy Blocks',
           color1: '#60b0c8',
+          color2: '#FFFFFF',
+          color3: '#808080',
           blocks: [
             makeLabel('Control'),
             {
