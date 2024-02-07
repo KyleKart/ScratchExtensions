@@ -16,7 +16,18 @@ class ScratchBetaBlocks {
         name: 'Legacy Blocks',
         color1: '#60b0c8',
         blocks: [
-          makeLabel('Control'),       
+          makeLabel('Control'),
+          {
+            opcode: 'comment',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'comment [EVENT]',
+            arguments: {
+              EVENT: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: 'comment here',
+              }
+            }
+          },       
           {
             opcode: 'whenReceived',
             blockType: Scratch.BlockType.EVENT,
@@ -102,6 +113,12 @@ class ScratchBetaBlocks {
             blockType: Scratch.BlockType.COMMAND,
             filter: [Scratch.TargetType.SPRITE],
             text: 'say nothing',
+          },
+          {
+            opcode: 'hideAll',
+            blockType: Scratch.BlockType.COMMAND,
+            filter: [Scratch.TargetType.STAGE],
+            text: 'hide all sprites',
           },
           makeLabel('Media'),   
           {
@@ -197,6 +214,11 @@ console.log("New Background Index:", targetSprite.currentCostume + amount);
       getSoundByName(name) {
         const soundIndex = this.getSoundBank().sounds.findIndex(sound => sound.name === name);
         return this.getSoundBank().sounds[soundIndex];
+      }
+
+      hideAll(args, util) {
+        util.target.setVisible(false);
+        this._renderBubble(util.target);      
       }
 
       sayNothing(args, util) {
