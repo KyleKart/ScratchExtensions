@@ -16,7 +16,7 @@
           name: 'Legacy Blocks',
           color1: '#60b0c8',
           color2: '#FFFFFF',
-          color3: '#808080',
+          color3: '#e0f0f0',
           blocks: [
             makeLabel('Control'),
             {
@@ -47,6 +47,8 @@
               isEdgeActivated: false,
               hideFromPalette: false,
               color1: '#9800c8',
+              color2: '#FFFFFF',
+              color3: '#d8f8f8',
               arguments: {
                 EVENT_OPTION: {
                   type: Scratch.ArgumentType.STRING,
@@ -74,6 +76,8 @@
               isEdgeActivated: false,
               hideFromPalette: false,
               color1: '#9800c8',
+              color2: '#FFFFFF',
+              color3: '#d8f8f8',
               arguments: {
                 EVENT_OPTION: {
                   type: Scratch.ArgumentType.STRING,

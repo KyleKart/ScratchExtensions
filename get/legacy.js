@@ -16,7 +16,7 @@ class ScratchBetaBlocks {
         name: 'Legacy Blocks',
         color1: '#60b0c8',
         color2: '#FFFFFF',
-        color3: '#808080',
+        color3: '#60b0c8',
         blocks: [
           makeLabel('Control'),
           {
