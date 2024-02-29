@@ -5,21 +5,33 @@
             name: 'Theme Color',
             blocks: [
               {
-                opcode: 'JS',
+                opcode: 'themecolorset',
                 blockType: Scratch.BlockType.COMMAND,
                 text: 'set theme color [theme] to [color]',
                 arguments: {
-                color: {
+                  theme: {
                     type: Scratch.ArgumentType.STRING,
+                    defaultValue: "any",
+                    menu: "themeMenu"
+
+                  },
+                color: {
+                    type: Scratch.ArgumentType.COLOR,
                     defaultValue: "",
                   },
                 },
               }
             ],
+            menus: {
+              options1: {
+                  acceptReporters: true,
+                  themeMenu: ["any", "light", "dark"]
+              }, 
+          } 
         }
     
         }
-        JS(args) {
+        themecolorset(args) {
         eval(args.code)
         }
     
