@@ -17,22 +17,23 @@
                   },
                 color: {
                     type: Scratch.ArgumentType.COLOR,
-                    defaultValue: "",
+                    defaultValue: "#8ba888",
                   },
                 },
               }
             ],
             menus: {
-              options1: {
+              themeMenu: {
                   acceptReporters: true,
-                  themeMenu: ["any", "light", "dark"]
+                  items: ["any", "light", "dark"]
               }, 
           } 
         }
     
         }
         themecolorset(args) {
-        eval(args.code)
+          const theme = args.theme
+          const color = args.color
         }
     
       }
