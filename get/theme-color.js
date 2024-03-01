@@ -1,13 +1,15 @@
+let currentColor = "";
+
 class themecolor {
   getInfo() {
       return {
           id: 'themecolor',
-          name: 'Theme Color',
+          name: 'Theme Colour',
           blocks: [
               {
                   opcode: 'themecolorset',
                   blockType: Scratch.BlockType.COMMAND,
-                  text: 'set theme color [theme] to [color]',
+                  text: 'set theme-color [theme] to [color]',
                   arguments: {
                       theme: {
                           type: Scratch.ArgumentType.STRING,
@@ -19,6 +21,11 @@ class themecolor {
                           defaultValue: "#8ba888",
                       },
                   },
+              },
+              {
+                opcode: 'currentColor',
+                blockType: Scratch.BlockType.REPORTER,
+                text: 'current theme-color',
               }
           ],
           menus: {
@@ -44,6 +51,7 @@ class themecolor {
       const metaTag = document.createElement('meta');
       metaTag.name = 'theme-color';
       metaTag.content = color; // Use the selected color
+      currentColor = color;
 
       // Check if the theme is dark or light
       if (theme === 'dark') {
@@ -54,6 +62,9 @@ class themecolor {
 
       // Append the new <meta> tag to the <head> of the document
       document.head.appendChild(metaTag);
+  }
+  currentColor(args) {
+    return currentColor;
   }
 }
 
