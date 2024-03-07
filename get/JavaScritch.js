@@ -117,7 +117,8 @@ function stopAllSounds(name) {
         existingDiv.appendChild(container);
 
         const editor = ace.edit(container);
-        editor.setTheme("ace/theme/chrome");
+        editor.setTheme("ace/theme/monokai");
+        editor.session.setMode("ace/mode/javascript");
 
         // Function to get text from Ace Editor and evaluate it
         function evaluateCode() {
