@@ -1,25 +1,17 @@
-// Function to move to a specific (X, Y) position
-function goToXY(X, Y, name, callback) {
+function goToXY(X, Y, name) {
   const target = vm.runtime.getSpriteTargetByName(name);
   const xy = { X: X, Y: Y };
-  vm.runtime.ext_scratch3_motion.goToXY(xy, { target }, () => {
-    // Animation complete, call the callback
-    if (typeof callback === 'function') {
-      callback();
-    }
-  });
+  console.log(xy);
+  console.log(target);
+  vm.runtime.ext_scratch3_motion.goToXY(xy, { target });
 }
 
-// Function to change the X position
-function changeX(X, name, callback) {
+function changeX(X, name) {
   const target = vm.runtime.getSpriteTargetByName(name);
   const xChange = { DX: X };
-  vm.runtime.ext_scratch3_motion.changeX(xChange, { target }, () => {
-    // Animation complete, call the callback
-    if (typeof callback === 'function') {
-      callback();
-    }
-  });
+  console.log(xChange);
+  console.log(target);
+  vm.runtime.ext_scratch3_motion.changeX(xChange, { target });
 }
 
 function changeY(Y, name) {
@@ -134,7 +126,7 @@ function stopAllSounds(name) {
 
           try {
             // Use eval() (or Function) to execute the code
-            eval(code);
+          eval(code);
           } catch (error) {
             console.error("Error evaluating code:", error);
           }
