@@ -7,7 +7,7 @@ class themecolor {
               {
                   opcode: 'themecolorset',
                   blockType: Scratch.BlockType.COMMAND,
-                  text: 'set theme color [theme] to [color]',
+                  text: 'set theme-color [theme] to [color]',
                   arguments: {
                       theme: {
                           type: Scratch.ArgumentType.STRING,
