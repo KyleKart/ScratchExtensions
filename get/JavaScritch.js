@@ -25,10 +25,30 @@ class SpriteReference {
   }
 
   set position(value) {
-    this.sprite.setXY(value.x, value.y);
+    if (Array.isArray(value) && value.length === 2) {
+      this.sprite.setXY(value[0], value[1]);
+    } else if (typeof value === 'object' && 'x' in value && 'y' in value) {
+      this.sprite.setXY(value.x, value.y);
+    }
+  }
+  set pos(value) {
+    // Reuse the position setter by calling it with the provided value
+    this.position = value;
   }
   get position() {
     return { x: this.sprite.x, y: this.sprite.y };
+  }
+  set size(value) {
+    if (Array.isArray(value) && value.length === 2) {
+      this.sprite.setXY(value[0]);
+    } else if (typeof value === 'object' && 'size' in value) {
+      this.sprite.setSize(value.size);
+    } else {
+    this.sprite.setSize(value);
+  }
+  }
+  get size() {
+    return Math.round(this.sprite.size);
   }
 }
 

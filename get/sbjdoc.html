@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpriteReference Class Documentation</title>
+  <style>
+    code {
+      background-color: #f0f0f0;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    h3 {
+      color: #555;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>SpriteReference Class</h2>
+
+  <p>The <code>SpriteReference</code> class makes it easy to modify sprite properties.</p>
+
+  <h3>Constructor</h3>
+
+  <p><code>sprite(spriteName)</code></p>
+
+  <p>Creates a <code>SpriteReference</code> instance for the sprite with the specified name.</p>
+
+  <ul>
+    <li><strong>Parameters:</strong></li>
+    <ul>
+      <li><code>spriteName</code> (string): The name of the sprite.</li>
+    </ul>
+  </ul>
+
+  <h3>Properties</h3>
+
+  <h4><code>position: { x: number, y: number }</code></h4>
+
+  <ul>
+    <li><strong>Setter:</strong></li>
+    <ul>
+      <li>Sets the position of the sprite using various formats:</li>
+      <ul>
+        <li><code>{ x: number, y: number }</code></li>
+        <li><code>[x, y]</code> (Array)</li>
+      </ul>
+    </ul>
+    <li><strong>Getter:</strong></li>
+    <ul>
+      <li>Returns the current position as an object <code>{ x: number, y: number }</code>.</li>
+    </ul>
+  </ul>
+
+  <h4><code>pos: { x: number, y: number }</code> (Alias for <code>position</code>)</h4>
+
+  <h4><code>size: number</code></h4>
+
+  <ul>
+    <li><strong>Setter:</strong></li>
+    <ul>
+      <li>Sets the size of the sprite.</li>
+      <ul>
+        <li>Can be a single number or an array <code>[size]</code>.</li>
+      </ul>
+    </ul>
+    <li><strong>Getter:</strong></li>
+    <ul>
+      <li>Returns the rounded size of the sprite.</li>
+    </ul>
+  </ul>
+
+  <h3>Example Usage</h3>
+
+  <pre><code>// Creating a SpriteReference instance
+const sprite1 = sprite("Sprite1");
+
+// Setting position using various formats
+sprite1.position = { x: 100, y: 100 };
+sprite1.pos = [x, y];
+
+// Setting the size using different formats
+sprite1.size = 50;          // single number
+sprite1.size = [50];        // array
+sprite1.size = { size: 50 }; // object
+
+// Retrieving sprite properties
+const currentPosition = sprite1.position;
+const currentSize = sprite1.size;
+
+// Accessing individual components of the position
+const xCoordinate = sprite1.position.x;
+const yCoordinate = sprite1.position.y;</code></pre>
+
+</body>
+</html>
