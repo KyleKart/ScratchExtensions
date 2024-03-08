@@ -1,5 +1,15 @@
+function spriteName() {
+  const currentTarget = vm.runtime.getEditingTarget();
+  if (currentTarget && currentTarget.isOriginal) {
+    return currentTarget.sprite.name;
+  } else {
+    return null;
+  }
+}
+
 function goToXY(X, Y, name) {
-  const target = vm.runtime.getSpriteTargetByName(name);
+  const targetName = name || spriteName();
+  const target = vm.runtime.getSpriteTargetByName(targetName);
   const xy = { X: X, Y: Y };
   console.log(xy);
   console.log(target);
@@ -7,7 +17,8 @@ function goToXY(X, Y, name) {
 }
 
 function changeX(X, name) {
-  const target = vm.runtime.getSpriteTargetByName(name);
+  const targetName = name || spriteName();
+  const target = vm.runtime.getSpriteTargetByName(targetName);
   const xChange = { DX: X };
   console.log(xChange);
   console.log(target);
@@ -15,7 +26,8 @@ function changeX(X, name) {
 }
 
 function changeY(Y, name) {
-  const target = vm.runtime.getSpriteTargetByName(name);
+  const targetName = name || spriteName();
+  const target = vm.runtime.getSpriteTargetByName(targetName);
   const yChange = { DY: Y };
   console.log(yChange);
   console.log(target);
@@ -23,7 +35,8 @@ function changeY(Y, name) {
 }
 
 function sayforsecs(say, secs, name) {
-  const target = vm.runtime.getSpriteTargetByName(name);
+  const targetName = name || spriteName();
+  const target = vm.runtime.getSpriteTargetByName(targetName);
   const sayParams = { MESSAGE: say, SECS: secs };
   console.log(sayParams);
   console.log(target);
@@ -31,7 +44,8 @@ function sayforsecs(say, secs, name) {
 }
 
 function setRotationStyle(style, name) {
-  const target = vm.runtime.getSpriteTargetByName(name);
+  const targetName = name || spriteName();
+  const target = vm.runtime.getSpriteTargetByName(targetName);
   const rotationParams = { STYLE: style };
   console.log(rotationParams);
   console.log(target);
@@ -39,7 +53,8 @@ function setRotationStyle(style, name) {
 }
 
 function setSize(size, name) {
-  const target = vm.runtime.getSpriteTargetByName(name);
+  const targetName = name || spriteName();
+  const target = vm.runtime.getSpriteTargetByName(targetName);
   const sizeParams = { SIZE: size };
   console.log(sizeParams);
   console.log(target);
@@ -47,7 +62,8 @@ function setSize(size, name) {
 }
 
 function playSound(sound, name) {
-  const target = vm.runtime.getSpriteTargetByName(name);
+  const targetName = name || spriteName();
+  const target = vm.runtime.getSpriteTargetByName(targetName);
   const soundParams = { SOUND_MENU: sound };
   console.log(soundParams);
   console.log(target);
@@ -55,16 +71,20 @@ function playSound(sound, name) {
 }
 
 function stopAllSounds(name) {
-  const target = vm.runtime.getSpriteTargetByName(name);
+  const targetName = name || spriteName();
+  const target = vm.runtime.getSpriteTargetByName(targetName);
   const emptyParams = {};
   console.log(emptyParams);
   console.log(target);
   vm.runtime.ext_scratch3_sound.stopAllSounds(emptyParams, { target });
 }
 
-    // Dynamically load Ace Editor library
+    // Load scripts
     const aceScript = document.createElement('script');
     aceScript.src = 'https://cdn.jsdelivr.net/npm/ace-builds@1.32.7/src-min-noconflict/ace.js';
+    document.head.appendChild(aceScript);
+    const consoleScript = document.createElement('script');
+    consoleScript.src = 'https://raw.githubusercontent.com/y21/embedded-console/master/console.js';
     document.head.appendChild(aceScript);
 
     // Wait for Ace Editor library to load
@@ -95,6 +115,22 @@ function stopAllSounds(name) {
           user-drag: none;
           cursor: pointer;
         }
+         /* Style for the custom console */
+        #console-container {
+            width: 500px;
+            height: 100%;
+            background-color: var(--ui-secondary);
+            overflow: auto;
+            padding: 10px;
+            font-size: 12px;
+        }
+
+        /* Style for the Ace Editor container */
+        #editor-container {
+            width: calc(100% - 500px);
+            height: 100%;
+            float: left;
+        }
       `;
       document.head.appendChild(styleElement);
 
@@ -112,32 +148,138 @@ function stopAllSounds(name) {
         // Create a new container for the Ace Editor
         const container = document.createElement('div');
         container.id = 'editor-container';
-        container.style.height = '100%';
-        container.style.width = '100%';
         existingDiv.appendChild(container);
 
+        const container2 = document.createElement('div');
+        container2.id = 'console-container';
+        existingDiv.appendChild(container2);
+
+        // Original console reference
+const originalConsole = window.console;
+
+// Custom console object
+const customConsole = {
+    log: function (message) {
+        // Log to the custom console
+        const logElement = document.createElement('div');
+        logElement.textContent = message;
+        container2.appendChild(logElement);
+
+        // Log to the original console
+        originalConsole.log(message);
+    },
+    error: function (message) {
+      // Log to the custom console
+      const logElement = document.createElement('div');
+      logElement.textContent = message;
+      container2.appendChild(logElement);
+
+      // Log to the original console
+      originalConsole.error(message);
+  },
+    // You can add other console methods like warn, error, etc.
+};
+
+// Redirect global console to your custom console
+window.console = customConsole;
+
+
         const editor = ace.edit(container);
-        editor.setTheme("ace/theme/monokai");
+        // Get the theme from Redux store
+        const theme = ReduxStore.getState().scratchGui.theme.theme.gui;
+
+                // Define a mapping to store code for each sprite
+const spriteCodeMap = {};
+
+// Function to set code for a sprite
+function setSpriteCode(spriteName, code) {
+  spriteCodeMap[spriteName] = code;
+}
+
+// Function to get code for a sprite
+function getSpriteCode(spriteName) {
+  return spriteCodeMap[spriteName] || ''; // Return code or an empty string if not found
+}
+
+let currentSpriteName = spriteName(); // Initialize with the initial sprite name
+
+// Create an interval to check for sprite changes
+//setInterval(function () {
+  //const newSpriteName = spriteName();
+
+  // Check if the sprite has changed
+  // if (newSpriteName !== currentSpriteName) {
+    // Save the current code for the previous sprite
+    //setSpriteCode(currentSpriteName, editor.getValue());
+
+    // Update the current sprite name
+    //currentSpriteName = newSpriteName;
+
+    // Get and set the code for the new sprite
+   // const codeForNewSprite = getSpriteCode(currentSpriteName);
+   // editor.setValue(codeForNewSprite, 1); // The second parameter is the cursor position (1 for the start)
+ // }
+//}, 100); // Adjust the interval duration as needed (e.g., check every second)
+
+// Function to update Ace Editor theme based on Redux store theme
+function updateAceEditorTheme() {
+  // Get the theme from Redux store
+  const theme = ReduxStore.getState().scratchGui.theme.theme.gui;
+
+  // Set the Ace Editor theme based on the theme obtained from the Redux store
+  const editorTheme = theme === "dark" ? "ace/theme/monokai" : "ace/theme/chrome";
+  editor.setTheme(editorTheme);
+}
+
+// Set up a periodic check (e.g., every 1000 milliseconds)
+const checkThemeInterval = setInterval(updateAceEditorTheme, 1000);
         editor.session.setMode("ace/mode/javascript");
 
         // Function to get text from Ace Editor and evaluate it
         function evaluateCode() {
           const code = editor.getValue();
-          console.log("Text from Ace Editor:", code);
 
-          try {
-            // Use eval() (or Function) to execute the code
           eval(code);
-          } catch (error) {
-            console.error("Error evaluating code:", error);
-          }
         }
+
+        // Function to get text from Ace Editor and evaluate it for every sprite
+async function evaluateCodeForAllSprites() {
+  const spriteEvaluations = [];
+
+  // Iterate through all sprites
+  for (const target of vm.runtime.targets) {
+    if (target.isOriginal) {
+      const spriteName = target.sprite.name;
+
+      // Get the code for the current sprite
+      const codeForSprite = getSpriteCode(spriteName);
+
+      // Create a Promise for evaluating the code for the current sprite
+      const evaluationPromise = new Promise((resolve) => {
+        setTimeout(() => {
+          // Evaluate the code for the current sprite after a delay (adjust as needed)
+          eval(codeForSprite);
+
+          // Resolve the Promise
+          resolve();
+        }, 0); // Set a minimal delay
+      });
+
+      // Add the Promise to the array
+      spriteEvaluations.push(evaluationPromise);
+    }
+  }
+
+  // Use Promise.all to wait for all evaluations to complete
+  await Promise.all(spriteEvaluations);
+}
+
 
         // Create a new img tag with the added CSS class
         const newImg = document.createElement('img');
         newImg.className = 'green-go';
         newImg.draggable = false;
-        newImg.src = 'static/assets/e73c3c9d236267ba684bc3817e62ae5f.svg';
+        newImg.src = 'data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIxNS4yNzU1MyIgaGVpZ2h0PSIxOC4yMTYzMiIgdmlld0JveD0iMCwwLDE1LjI3NTUzLDE4LjIxNjMyIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjM0LjA4MzM5LC0xNzEuMTYzMzQpIj48ZyBkYXRhLXBhcGVyLWRhdGE9InsmcXVvdDtpc1BhaW50aW5nTGF5ZXImcXVvdDs6dHJ1ZX0iIGZpbGw9IiM0N2IzMDAiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSIjMzM4MDAwIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogbm9ybWFsIj48cGF0aCBkPSJNMjQ4LjM4MjYxLDE4MC4yNzE1bC0xMy43OTkyMiw4LjIyNzg5di0xNi40NTU3OXoiIGRhdGEtcGFwZXItZGF0YT0ieyZxdW90O2lzUGFpbnRpbmdMYXllciZxdW90Ozp0cnVlfSIvPjwvZz48L2c+PC9zdmc+PCEtLXJvdGF0aW9uQ2VudGVyOjUuOTE2NjA5OTk5OTk5OTkxNTo4LjgzNjY2NDAzNTI0NjM3Mi0tPg==';
         newImg.title = 'Go';
         newImg.style.cursor = 'pointer';
 
