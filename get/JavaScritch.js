@@ -13,7 +13,27 @@ function goToXY(X, Y, name) {
   const xy = { X: X, Y: Y };
   console.log(xy);
   console.log(target);
-  vm.runtime.ext_scratch3_motion.goToXY(xy, { target });
+  target.setXY(value.x, value.y);
+}
+
+class SpriteReference {
+  constructor(spriteName) {
+    const sprite = vm.runtime.getSpriteTargetByName(spriteName);
+    if (!sprite) throw new Error('sprite does not exist');
+
+    this.sprite = sprite;
+  }
+
+  set position(value) {
+    this.sprite.setXY(value.x, value.y);
+  }
+  get position() {
+    return { x: this.sprite.x, y: this.sprite.y };
+  }
+}
+
+function sprite(spriteName) {
+  return new SpriteReference(spriteName);
 }
 
 function changeX(X, name) {
