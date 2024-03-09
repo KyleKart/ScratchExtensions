@@ -39,7 +39,7 @@ class SpriteReference {
     return { x: this.sprite.x, y: this.sprite.y };
   }
   set size(value) {
-    if (Array.isArray(value) && value.length === 2) {
+    if (Array.isArray(value) && value.length === 1) {
       this.sprite.setXY(value[0]);
     } else if (typeof value === 'object' && 'size' in value) {
       this.sprite.setSize(value.size);
@@ -49,6 +49,63 @@ class SpriteReference {
   }
   get size() {
     return Math.round(this.sprite.size);
+  }
+  set direction(value) {
+    if (Array.isArray(value) && value.length === 1) {
+      this.sprite.setDirection(value[0]);
+    } else if (typeof value === 'object' && 'direction' in value) {
+      this.sprite.setDirection(value.direction);
+    } else {
+    this.sprite.setDirection(value);
+  }
+  }
+  get direction() {
+    return this.sprite.direction;
+  }
+  set visible(value) {
+    if (Array.isArray(value) && value.length === 1) {
+      this.sprite.setVisible(value[0]);
+    } else if (typeof value === 'object' && 'visible' in value) {
+      this.sprite.setVisible(value.visible);
+    } else {
+    this.sprite.setVisible(value);
+  }
+  }
+  get visible() {
+    return this.sprite.visible;
+  }
+  
+  set dead(value) {
+    if (Array.isArray(value) && value.length === 1 && value[0]) {
+        vm.runtime.targets.forEach(target => {
+            if (target.sprite === this.sprite) {
+              vm.deleteSprite(target.id); 
+            }
+        });
+    } 
+    else if (typeof value === 'object' && 'dead' in value && value.dead) {
+        vm.runtime.targets.forEach(target => {
+            if (target.sprite === this.sprite) {
+              vm.deleteSprite(target.id);;
+            }
+        });
+    } 
+    else if (value) {
+        vm.runtime.targets.forEach(target => {
+            if (target.id === this.sprite.id) {
+              vm.deleteSprite(target.id);
+            }
+        });
+    }
+}
+
+  ext(extID, funcName, args) {
+    if (vm.runtime['ext_' + extID] && typeof vm.runtime['ext_' + extID][funcName] === 'function') {
+      // Call the extension function with the provided arguments and target sprite
+      vm.runtime['ext_' + extID][funcName](args, { target: this.sprite });
+    } else {
+      console.error(`Invalid extension ID or function name: "${extID}" or "${funcName}"`);
+    }
   }
 }
 
@@ -155,9 +212,21 @@ function stopAllSounds(name) {
           user-drag: none;
           cursor: pointer;
         }
+        .blocklyToolboxDiv {
+          display: none;
+        }
+        .blocklyFlyout {
+          display: none;
+        }
+        .blocklyWorkspace {
+          display: none;
+        }
+        .blocklyFlyoutScrollbar {
+          display: none;
+        }
          /* Style for the custom console */
         #console-container {
-            width: 500px;
+            width: 300px;
             height: 100%;
             background-color: var(--ui-secondary);
             overflow: auto;
@@ -167,7 +236,7 @@ function stopAllSounds(name) {
 
         /* Style for the Ace Editor container */
         #editor-container {
-            width: calc(100% - 500px);
+            width: calc(100% - 300px);
             height: 100%;
             float: left;
         }
@@ -181,9 +250,6 @@ function stopAllSounds(name) {
       ]).then(() => {
         // Now you can safely create an Ace Editor instance
         const existingDiv = document.querySelector('.react-tabs_react-tabs__tab-panel_3p4DW');
-
-        // Remove existing content
-        existingDiv.innerHTML = '';
 
         // Create a new container for the Ace Editor
         const container = document.createElement('div');
@@ -202,7 +268,7 @@ const customConsole = {
     log: function (message) {
         // Log to the custom console
         const logElement = document.createElement('div');
-        logElement.textContent = message;
+        logElement.textContent = JSON.stringify(message);
         container2.appendChild(logElement);
 
         // Log to the original console
@@ -211,7 +277,7 @@ const customConsole = {
     error: function (message) {
       // Log to the custom console
       const logElement = document.createElement('div');
-      logElement.textContent = message;
+      logElement.textContent = JSON.stringify(message);
       container2.appendChild(logElement);
 
       // Log to the original console
@@ -271,6 +337,25 @@ function updateAceEditorTheme() {
   editor.setTheme(editorTheme);
 }
 
+vm.runtime.on('PROJECT_LOADED', () => {
+  const storedData = vm.runtime.extensionStorage['javascritch'];
+
+  if (storedData && storedData.editorContent) {
+    // Set the Ace Editor content to the stored data
+    editor.setValue(storedData.editorContent);
+    console.log(storedData.editorContent);
+  } else {
+    console.log("no existy");
+    console.log(storedData);
+  }
+});
+editor.getSession().on('change', function () {
+  vm.runtime.extensionStorage['javascritch'] = {
+    editorContent: editor.getValue()
+  };
+});
+
+
 // Set up a periodic check (e.g., every 1000 milliseconds)
 const checkThemeInterval = setInterval(updateAceEditorTheme, 1000);
         editor.session.setMode("ace/mode/javascript");
@@ -281,6 +366,7 @@ const checkThemeInterval = setInterval(updateAceEditorTheme, 1000);
 
           eval(code);
         }
+
 
         // Function to get text from Ace Editor and evaluate it for every sprite
 async function evaluateCodeForAllSprites() {
