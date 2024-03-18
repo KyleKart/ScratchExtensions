@@ -38,6 +38,9 @@ class SpriteReference {
   get position() {
     return { x: this.sprite.x, y: this.sprite.y };
   }
+  get pos() {
+    return { x: this.sprite.x, y: this.sprite.y };
+  }
   set size(value) {
     if (Array.isArray(value) && value.length === 1) {
       this.sprite.setXY(value[0]);
@@ -59,7 +62,13 @@ class SpriteReference {
     this.sprite.setDirection(value);
   }
   }
+  set dir(value) {
+    this.direction = value;
+  }
   get direction() {
+    return this.sprite.direction;
+  }
+  get dir() {
     return this.sprite.direction;
   }
   set visible(value) {
@@ -75,6 +84,20 @@ class SpriteReference {
     return this.sprite.visible;
   }
   
+  set volume (value) {
+    this.sprite.volume = value;
+}
+
+get volume() {
+  return this.sprite.volume;
+}
+set vol (value) {
+  this.sprite.volume = value;
+}
+
+get vol() {
+return this.sprite.volume;
+}
   set dead(value) {
     if (Array.isArray(value) && value.length === 1 && value[0]) {
         vm.runtime.targets.forEach(target => {
@@ -355,17 +378,25 @@ editor.getSession().on('change', function () {
   };
 });
 
-
+function pause(seconds) {
+  // Convert seconds to milliseconds
+  const milliseconds = seconds * 1000;
+  return new Promise(resolve => setTimeout(resolve, milliseconds));
+}
 // Set up a periodic check (e.g., every 1000 milliseconds)
 const checkThemeInterval = setInterval(updateAceEditorTheme, 1000);
         editor.session.setMode("ace/mode/javascript");
 
         // Function to get text from Ace Editor and evaluate it
-        function evaluateCode() {
+        async function evaluateCode() {
           const code = editor.getValue();
-
-          eval(code);
-        }
+      
+          // Wrap the code in an async function
+          const asyncWrapper = `(async () => { ${code} })();`;
+      
+          // Evaluate the code
+          eval(asyncWrapper);
+      }
 
 
         // Function to get text from Ace Editor and evaluate it for every sprite
