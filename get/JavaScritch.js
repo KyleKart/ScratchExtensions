@@ -105,11 +105,6 @@ touching(value) {
 key (value) {
   return util.ioQuery('keyboard', 'getKeyIsDown', [value]);
 }
-whileKeyPressed(args, util) {
-  const key = Scratch.Cast.toString(args.KEY_OPTION).toLowerCase();
-  return util.ioQuery("keyboard", "getKeyIsDown", [key]);
-}
-
 
   set dead(value) {
     if (Array.isArray(value) && value.length === 1 && value[0]) {
@@ -144,6 +139,14 @@ whileKeyPressed(args, util) {
     }
   }
 }
+
+function stageClicked(callback) {
+  const canvas = document.querySelector("canvas");
+  canvas.addEventListener("click", () => {
+    callback();
+  });
+}
+
 
 function sprite(spriteName) {
   return new SpriteReference(spriteName);
@@ -183,15 +186,6 @@ function setRotationStyle(style, name) {
   console.log(rotationParams);
   console.log(target);
   vm.runtime.ext_scratch3_motion.setRotationStyle(rotationParams, { target });
-}
-
-function setSize(size, name) {
-  const targetName = name || spriteName();
-  const target = vm.runtime.getSpriteTargetByName(targetName);
-  const sizeParams = { SIZE: size };
-  console.log(sizeParams);
-  console.log(target);
-  vm.runtime.ext_scratch3_looks.setSize(sizeParams, { target });
 }
 
 function playSound(sound, name) {
