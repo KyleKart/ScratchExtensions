@@ -98,6 +98,19 @@ set vol (value) {
 get vol() {
 return this.sprite.volume;
 }
+
+touching(value) {
+  return this.sprite.isTouchingObject(value);
+}
+key (value) {
+  return util.ioQuery('keyboard', 'getKeyIsDown', [value]);
+}
+whileKeyPressed(args, util) {
+  const key = Scratch.Cast.toString(args.KEY_OPTION).toLowerCase();
+  return util.ioQuery("keyboard", "getKeyIsDown", [key]);
+}
+
+
   set dead(value) {
     if (Array.isArray(value) && value.length === 1 && value[0]) {
         vm.runtime.targets.forEach(target => {
