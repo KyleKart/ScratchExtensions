@@ -2,12 +2,12 @@ class GoogleFontsIconsExtension {
   getInfo() {
     return {
       id: 'googlesymbols',
-      name: 'Google Material Symbols',
+      name: 'Material Symbols',
       blocks: [
         {
           opcode: 'getIconData',
           blockType: Scratch.BlockType.REPORTER,
-          text: 'Material Symbols [MODE] [NAME] with style [STYLE]',
+          text: 'Symbol [MODE] [NAME] with style [STYLE]',
           arguments: {
             NAME: {
               type: Scratch.ArgumentType.STRING,
