@@ -9,17 +9,17 @@
                     {
                         opcode: "joinThree",
                         blockType: Scratch.BlockType.REPORTER,
-                        text: "join [s1] [s2] [s3]",
+                        text: "join [0] [1] [2]",
                         arguments: {
-                            s1: {
+                            0: {
                                 type: Scratch.ArgumentType.STRING,
                                 defaultValue: "Hello",
                             },
-                            s2: {
+                            1: {
                                 type: Scratch.ArgumentType.STRING,
                                 defaultValue: "world",
                             },
-                            s3: {
+                            2: {
                                 type: Scratch.ArgumentType.STRING,
                                 defaultValue: "!",
                             },
@@ -38,9 +38,9 @@
                     {
                         opcode: "randomLetter",
                         blockType: Scratch.BlockType.REPORTER,
-                        text: "random letter [LETTER_TYPE]",
+                        text: "random letter [0]",
                         arguments: {
-                            LETTER_TYPE: {
+                            0: {
                                 type: Scratch.ArgumentType.STRING,
                                 defaultValue: "lowercase",
                                 menu: "letterTypeMenu",
@@ -50,28 +50,40 @@
                     {
                         opcode: "rndString",
                         blockType: Scratch.BlockType.REPORTER,
-                        text: "random string [chance] [s1] [s2]",
+                        text: "random string [2] [0] [1]",
                         arguments: {
-                            s1: {
+                            0: {
                                 type: Scratch.ArgumentType.STRING,
-                                defaultValue: "Hello",
+                                defaultValue: "String 1",
                             },
-                            s2: {
+                            1: {
                                 type: Scratch.ArgumentType.STRING,
-                                defaultValue: "world",
+                                defaultValue: "String 2",
                             },
-                            chance: {
+                            2: {
                                 type: Scratch.ArgumentType.NUMBER,
                                 defaultValue: 50,
                             },
                         }
                     }                                      
                 ],
+                menus: {
+                    letterTypeMenu: [
+                        {
+                            text: "lowercase",
+                            value: "lowercase",
+                        },
+                        {
+                            text: "uppercase",
+                            value: "uppercase",
+                        }
+                    ]
+                }
             };
         }
 
         joinThree(args) {
-            return args.s1 + args.s2 + args.s3;
+            return args[0] + args[1] + args[2];
         }
         
         true() { 
@@ -83,11 +95,11 @@
         }
         randomLetter(args) {
             let letters = "abcdefghijklmnopqrstuvwxyz";
-            if (args.LETTER_TYPE === "uppercase") letters = letters.toUpperCase();
+            if (args[0] === "uppercase") letters = letters.toUpperCase();
             return letters.charAt(Math.floor(Math.random() * letters.length));
         }
         rndString(args) {
-            return Math.random() > args.chance / 100 ? args.s1 : args.s2;
+            return Math.random() > args[2] / 100 ? args[0] : args[1];
         }
     }
 
