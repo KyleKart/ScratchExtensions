@@ -50,19 +50,19 @@
                     {
                         opcode: "rndString",
                         blockType: Scratch.BlockType.REPORTER,
-                        text: "random string [2] [0] [1]",
+                        text: "random string [0] [1] [2]",
                         arguments: {
                             0: {
-                                type: Scratch.ArgumentType.STRING,
-                                defaultValue: "String 1",
+                                type: Scratch.ArgumentType.NUMBER,
+                                defaultValue: 50,
                             },
                             1: {
                                 type: Scratch.ArgumentType.STRING,
-                                defaultValue: "String 2",
+                                defaultValue: "String 1",
                             },
                             2: {
-                                type: Scratch.ArgumentType.NUMBER,
-                                defaultValue: 50,
+                                type: Scratch.ArgumentType.STRING,
+                                defaultValue: "String 2",
                             },
                         }
                     }                                      
@@ -99,7 +99,7 @@
             return letters.charAt(Math.floor(Math.random() * letters.length));
         }
         rndString(args) {
-            return Math.random() > args[2] / 100 ? args[0] : args[1];
+            return Math.random() > args[0] / 100 ? args[1] : args[2];
         }
     }
 
