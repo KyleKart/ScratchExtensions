@@ -23,8 +23,8 @@
         return letters.charAt(Math.floor(Math.random() * letters.length));
     };
 
-    ext.rndString = function(CHANCE, STRING1, STRING2) {
-        return Math.random() > CHANCE / 100 ? STRING2 : STRING1;
+    ext.rndString = function(chance, s1, s2) {
+        return Math.random() > chance / 100 ? s2 : s1;
     };
 
     var descriptor = {
