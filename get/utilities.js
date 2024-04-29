@@ -80,7 +80,27 @@
                                 defaultValue: "a",
                             },
                         },
-                    },                                      
+                    }, 
+                    {
+                        opcode: "textStartsOrEndsWith",
+                        blockType: Scratch.BlockType.BOOLEAN,
+                        text: "[0] [1] with [2]?",
+                        arguments: {
+                            0: {
+                                type: Scratch.ArgumentType.STRING,
+                                defaultValue: "abcdef",
+                            },
+                            1: {
+                                type: Scratch.ArgumentType.STRING,
+                                defaultValue: "starts",
+                                menu: "startsEndsMenu",
+                            },
+                            2: {
+                                type: Scratch.ArgumentType.STRING,
+                                defaultValue: "abc",
+                            },
+                        },
+                    },                                     
                 ],
                 menus: {
                     letterTypeMenu: [
@@ -92,7 +112,8 @@
                             text: "uppercase",
                             value: "uppercase",
                         }
-                    ]
+                    ],
+                    startsEndsMenu: ["starts", "ends"]
                 }
             };
         }
@@ -122,6 +143,15 @@
             };
             console.log(args);
             return format(args[0]).includes(format(args[1]));
+        }
+        textStartsOrEndsWith (args) {
+            const format = function (string) {
+                return string.toString().toLowerCase();
+            };
+            const text = format(args[0]);
+            const startsOrEnds = format(args[1]);
+            const withh = format(args[2]);
+            return (startsOrEnds === "starts") ? (text.startsWith(withh)) : (text.endsWith(withh));
         }
     }
 

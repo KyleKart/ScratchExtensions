@@ -34,6 +34,16 @@
         return format(s1).includes(format(s2));
     };
 
+    ext.contains = function(s1, s2, s3) {
+        const format = function (string) {
+            return string.toString().toLowerCase();
+        };
+        const text = format(s1);
+        const startsOrEnds = format(s2);
+        const withh = format(s3);
+        return (startsOrEnds === "starts") ? (text.startsWith(withh)) : (text.endsWith(withh));
+    }
+
     var descriptor = {
         blocks: [
             ['r', 'join %s %s %s', 'joinThree', 'Hello', 'world', '!'],
@@ -42,9 +52,11 @@
             ['r', 'random letter %m.LETTER_TYPE', 'randomLetter', 'lowercase'],
             ['r', 'random string %n %s %s', 'rndString', 50, 'String 1', 'String 2'],
             ['b', '%s contains %s?', 'contains', 'apple', 'a'],
+            ['b', '%s %m.startsEndsMenu with %s?', 'textStartsOrEndsWith', 'abcdef', 'abc'],
         ],
         menus: {
             LETTER_TYPE: ['lowercase', 'uppercase'],
+            startsEndsMenu: ["starts", "ends"]
         }
     };
 
