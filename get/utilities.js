@@ -100,7 +100,28 @@
                                 defaultValue: "abc",
                             },
                         },
-                    },                                     
+                    },   
+                    
+                    {
+                        opcode: 'packaged',
+                        text: 'project packaged?',
+                        blockType: Scratch.BlockType.BOOLEAN,
+                    },
+                    {
+                        opcode: 'currentMillisecond',
+                        text: 'current millisecond',
+                        blockType: Scratch.BlockType.REPORTER,
+                    },
+                    {
+                        opcode: 'turboWarp',
+                        text: 'is TurboWarp?',
+                        blockType: Scratch.BlockType.BOOLEAN,
+                    },
+                    {
+                        opcode: 'scratchX',
+                        text: 'is ScratchX?',
+                        blockType: Scratch.BlockType.BOOLEAN,
+                    },
                 ],
                 menus: {
                     letterTypeMenu: [
@@ -153,6 +174,21 @@
             const withh = format(args[2]);
             return (startsOrEnds === "starts") ? (text.startsWith(withh)) : (text.endsWith(withh));
         }
+
+        packaged() {
+            return Scratch.vm.runtime.isPackaged;
+        }
+    
+        currentMillisecond() {
+            return Date.now() % 1000;
+        }
+
+        turboWarp(){
+       return true;
+        }
+        scratchX(){
+            return false;
+             }
     }
 
     Scratch.extensions.register(new Utilities());

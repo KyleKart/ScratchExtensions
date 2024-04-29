@@ -44,6 +44,22 @@
         return (startsOrEnds === "starts") ? (text.startsWith(withh)) : (text.endsWith(withh));
     }
 
+    ext.packaged = function() {
+        return this.runtime.isPackaged;
+    }
+
+    ext.currentMillisecond = function() {
+        return Date.now() % 1000;
+    }
+
+    ext.turboWarp = function() {
+        return false;
+    }
+    ext.scratchX = function() {
+        return true;
+    }
+
+
     var descriptor = {
         blocks: [
             ['r', 'join %s %s %s', 'joinThree', 'Hello', 'world', '!'],
@@ -52,8 +68,14 @@
             ['r', 'random letter %m.LETTER_TYPE', 'randomLetter', 'lowercase'],
             ['r', 'random string %n %s %s', 'rndString', 50, 'String 1', 'String 2'],
             ['b', '%s contains %s?', 'contains', 'apple', 'a'],
-            ['b', '%s %m.startsEndsMenu with %s?', 'textStartsOrEndsWith', 'abcdef', 'abc'],
-        ],
+            ['b', '%s %m.startsEndsMenu with %s?', 'textStartsOrEndsWith', 'abcdef', 'starts', 'abc'],
+            ['b', 'project packaged?', 'packaged'],
+            ['r', 'current millisecond', 'currentMillisecond'],
+
+            ['b', 'is TurboWarp?', 'turboWarp'],
+            ['b', 'is ScratchX?', 'scratchX'],
+
+                ],
         menus: {
             LETTER_TYPE: ['lowercase', 'uppercase'],
             startsEndsMenu: ["starts", "ends"]
