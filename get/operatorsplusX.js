@@ -40,5 +40,5 @@
         }
     };
 
-    ScratchExtensions.register('Extra Operators', descriptor, ext);
+    ScratchExtensions.register('Utilities', descriptor, ext);
 })({});
