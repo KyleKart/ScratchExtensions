@@ -5,9 +5,6 @@
             return {
                 id: "sbxutilities",
                 name: "Utilities",
-                color1: '#4a4a5e',
-                color2: '#31323f',
-                color3: '#191a21',
                 blocks: [
                     {
                         opcode: "joinThree",
