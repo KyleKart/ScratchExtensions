@@ -59,6 +59,10 @@
         return true;
     }
 
+    ext.if_return_else_return = function(s1, s2, s3) {
+        return Boolean(s1) ? s2 : s3;
+    }
+
 
     var descriptor = {
         blocks: [
@@ -74,6 +78,8 @@
 
             ['b', 'is TurboWarp?', 'turboWarp'],
             ['b', 'is ScratchX?', 'scratchX'],
+
+            ['r', 'if %b %s else %s', 'if_return_else_return', '', 'foo', 'bar'],
 
                 ],
         menus: {

@@ -122,6 +122,24 @@
                         text: 'is ScratchX?',
                         blockType: Scratch.BlockType.BOOLEAN,
                     },
+                    {
+                        opcode: "if_return_else_return",
+                        blockType: Scratch.BlockType.REPORTER,
+                        text: "if [0] [1] else [2]",
+                        arguments: {
+                            0: {
+                                type: Scratch.ArgumentType.BOOLEAN,
+                            },
+                            1: {
+                                type: Scratch.ArgumentType.STRING,
+                                defaultValue: "foo",
+                            },
+                            2: {
+                                type: Scratch.ArgumentType.STRING,
+                                defaultValue: "bar",
+                            },
+                        },
+                    },   
                 ],
                 menus: {
                     letterTypeMenu: [
@@ -189,6 +207,9 @@
         scratchX(){
             return false;
              }
+             if_return_else_return (args) {
+                return Boolean(args[0]) ? args[1] : args[2];
+            }
     }
 
     Scratch.extensions.register(new Utilities());
