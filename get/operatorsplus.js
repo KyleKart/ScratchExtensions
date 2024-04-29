@@ -36,6 +36,18 @@
                         text: "false",
                     },
                     {
+                        opcode: "randomLetter",
+                        blockType: Scratch.BlockType.REPORTER,
+                        text: "random letter [LETTER_TYPE]",
+                        arguments: {
+                            LETTER_TYPE: {
+                                type: Scratch.ArgumentType.STRING,
+                                defaultValue: "lowercase",
+                                menu: "letterTypeMenu",
+                            },
+                        },
+                    },
+                    {
                         opcode: "rndString",
                         blockType: Scratch.BlockType.REPORTER,
                         text: "random string [chance] [s1] [s2]",
@@ -68,6 +80,11 @@
         
         false() { 
             return false; 
+        }
+        randomLetter(args) {
+            let letters = "abcdefghijklmnopqrstuvwxyz";
+            if (args.LETTER_TYPE === "uppercase") letters = letters.toUpperCase();
+            return letters.charAt(Math.floor(Math.random() * letters.length));
         }
         rndString(args) {
             return Math.random() > args.chance / 100 ? args.s1 : args.s2;
