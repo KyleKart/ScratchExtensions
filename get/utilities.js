@@ -65,7 +65,22 @@
                                 defaultValue: "String 2",
                             },
                         }
-                    }                                      
+                    },
+                    {
+                        opcode: "contains",
+                        blockType: Scratch.BlockType.BOOLEAN,
+                        text: "[0] contains [1]?",
+                        arguments: {
+                            0: {
+                                type: Scratch.ArgumentType.STRING,
+                                defaultValue: "apple",
+                            },
+                            1: {
+                                type: Scratch.ArgumentType.STRING,
+                                defaultValue: "a",
+                            },
+                        },
+                    },                                      
                 ],
                 menus: {
                     letterTypeMenu: [
@@ -100,6 +115,13 @@
         }
         rndString(args) {
             return Math.random() > args[0] / 100 ? args[1] : args[2];
+        }
+        contains (args) {
+            const format = function (string) {
+                return string.toString().toLowerCase();
+            };
+            console.log(args);
+            return format(args[0]).includes(format(args[1]));
         }
     }
 
