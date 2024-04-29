@@ -1,7 +1,7 @@
 (function(ext) {
-    
-    ext.sayHello = function(callback) {
-        callback("Hello, world!");
+
+    ext.sayHello = function() {
+        return("Hello, world!");
     };
 
     var descriptor = {
