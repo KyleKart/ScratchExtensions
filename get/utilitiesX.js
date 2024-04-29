@@ -27,6 +27,13 @@
         return Math.random() > chance / 100 ? s2 : s1;
     };
 
+    ext.contains = function(s1, s2) {
+        const format = function (string) {
+            return string.toString().toLowerCase();
+        };
+        return format(s1).includes(format(s2));
+    };
+
     var descriptor = {
         blocks: [
             ['r', 'join %s %s %s', 'joinThree', 'Hello', 'world', '!'],
@@ -34,6 +41,7 @@
             ['b', 'false', 'false'],
             ['r', 'random letter %m.LETTER_TYPE', 'randomLetter', 'lowercase'],
             ['r', 'random string %n %s %s', 'rndString', 50, 'String 1', 'String 2'],
+            ['b', '%s contains %s?', 'contains', 'apple', 'a'],
         ],
         menus: {
             LETTER_TYPE: ['lowercase', 'uppercase'],
