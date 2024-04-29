@@ -1,4 +1,9 @@
 (function(ext) {
+    ext._shutdown = function() {};
+
+    ext._getStatus = function() {
+        return {status: 2, msg: 'Ready'};
+    };
 
     ext.sayHello = function() {
         return("Hello, world!");
@@ -6,7 +11,7 @@
 
     var descriptor = {
         blocks: [
-            ['R', 'say hello', 'sayHello']
+            ['r', 'say hello', 'sayHello']
         ]
     };
 
