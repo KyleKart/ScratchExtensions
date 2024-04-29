@@ -45,7 +45,7 @@
     }
 
     ext.packaged = function() {
-        return this.runtime.isPackaged;
+        return Scratch.vm.runtime.isPackaged;
     }
 
     ext.currentMillisecond = function() {
