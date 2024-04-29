@@ -1,20 +1,25 @@
 (function(ext) {
+    // Function to replace every word in a string with "Joe"
+    function replaceWordsWithJoe(html) {
+        // Split the string into words
+        var words = html.split(/\s+/);
+        
+        // Replace each word with "Joe"
+        for (var i = 0; i < words.length; i++) {
+            words[i] = 'Joe';
+        }
+        
+        // Join the words back into a string
+        return words.join(' ');
+    }
+
     // Define a block to replace every word in HTML with "Joe"
     ext.replaceWordsWithJoe = function(html, callback) {
-        // Manipulate the HTML content to replace every word with "Joe"
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(html, 'text/html');
-        var textNodes = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT, null, false);
-        var node;
-        while (node = textNodes.nextNode()) {
-            var words = node.nodeValue.split(/\s+/);
-            for (var i = 0; i < words.length; i++) {
-                words[i] = 'Joe';
-            }
-            node.nodeValue = words.join(' ');
-        }
+        // Replace words in the HTML
+        var newHtml = replaceWordsWithJoe(html);
+        
         // Invoke the callback with the manipulated HTML
-        callback(doc.body.innerHTML);
+        callback(newHtml);
     };
 
     // Block and block menu descriptions
