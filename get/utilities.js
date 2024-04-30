@@ -106,6 +106,28 @@
                             },
                         },
                     },   
+                    {
+                        opcode: "toUppercase",
+                        blockType: Scratch.BlockType.REPORTER,
+                        text: "[0] Uppercase",
+                        arguments: {
+                            0: {
+                                type: Scratch.ArgumentType.STRING,
+                                defaultValue: "HeLlO wOrLd!",
+                            },
+                        },
+                    }, 
+                    {
+                        opcode: "get",
+                        blockType: Scratch.BlockType.REPORTER,
+                        text: "GET [0]",
+                        arguments: {
+                          0: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: "https://extensions.turbowarp.org/hello.txt",
+                          },
+                        },
+                      },
                 ],
                 menus: {
                     startsEndsMenu: ["starts", "ends"]
@@ -130,6 +152,9 @@
         }
         toLowercase(args) {
             return args[0].toLowerCase();
+        }
+        toUppercase(args) {
+            return args[0].toUpperCase();
         }
         rndString(args) {
             return Math.random() > args[0] / 100 ? args[1] : args[2];
@@ -156,6 +181,11 @@
         scratchX(){
             return false;
              }
+             get(args) {
+                return Scratch.fetch(args[0])
+                  .then((r) => r.text())
+                  .catch(() => "");
+              }
     }
 
     Scratch.extensions.register(new Utilities());
