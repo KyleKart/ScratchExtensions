@@ -1,0 +1,18 @@
+(function(ext) {
+    ext._shutdown = function() {};
+
+    ext._getStatus = function() {
+        return {status: 2, msg: 'Ready'};
+    };
+var descriptor = {
+        blocks: [
+            ['', 'boolean test block %b', 'Boolean', 'Hello'],
+
+
+                ],
+        menus: {
+        }
+    };
+
+    ScratchExtensions.register('Testing', descriptor, ext);
+})({});

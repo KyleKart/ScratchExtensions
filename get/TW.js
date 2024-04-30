@@ -1,15 +1,15 @@
 (function (Scratch) {
     'use strict';
   
-  if (!Scratch.extensions.unsandboxed) {
-    throw new Error('Operartors extension needs to be run unsandboxed!');
-  }
-  if (Scratch.extensions.unsandboxed) {
-    alert("This extension replaces your existing Operators category and adds new blocks!");
-}
   const makeLabel = (text) => ({
       blockType: 'label',
-      text: text
+      text: text,
+      blocks: [
+        {
+            opcode: "argumentReporterBoolean",
+            blockType: Scratch.BlockType.BOOLEAN,
+        },
+      ]
     });
 
 class Scratch3ProcedureBlocks {
@@ -39,15 +39,6 @@ class Scratch3ProcedureBlocks {
           }
       
           if (lowercaseValue === 'is turbowarp?') {
-            return true;
-          }
-      
-          // Add more checks here
-          if (lowercaseValue === 'is custom block?') {
-            return true;
-          }
-      
-          if (lowercaseValue === 'is extension?') {
             return true;
           }
       

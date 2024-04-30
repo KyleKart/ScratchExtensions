@@ -36,16 +36,9 @@
                         text: "false",
                     },
                     {
-                        opcode: "randomLetter",
+                        opcode: "rndLetter",
                         blockType: Scratch.BlockType.REPORTER,
-                        text: "random letter [0]",
-                        arguments: {
-                            0: {
-                                type: Scratch.ArgumentType.STRING,
-                                defaultValue: "lowercase",
-                                menu: "letterTypeMenu",
-                            },
-                        },
+                        text: "random letter",
                     },
                     {
                         opcode: "rndString",
@@ -81,26 +74,6 @@
                             },
                         },
                     }, 
-                    {
-                        opcode: "textStartsOrEndsWith",
-                        blockType: Scratch.BlockType.BOOLEAN,
-                        text: "[0] [1] with [2]?",
-                        arguments: {
-                            0: {
-                                type: Scratch.ArgumentType.STRING,
-                                defaultValue: "abcdef",
-                            },
-                            1: {
-                                type: Scratch.ArgumentType.STRING,
-                                defaultValue: "starts",
-                                menu: "startsEndsMenu",
-                            },
-                            2: {
-                                type: Scratch.ArgumentType.STRING,
-                                defaultValue: "abc",
-                            },
-                        },
-                    },   
                     
                     {
                         opcode: 'packaged',
@@ -123,35 +96,18 @@
                         blockType: Scratch.BlockType.BOOLEAN,
                     },
                     {
-                        opcode: "if_return_else_return",
+                        opcode: "toLowercase",
                         blockType: Scratch.BlockType.REPORTER,
-                        text: "if [0] [1] else [2]",
+                        text: "[0] lowercase",
                         arguments: {
                             0: {
-                                type: Scratch.ArgumentType.BOOLEAN,
-                            },
-                            1: {
                                 type: Scratch.ArgumentType.STRING,
-                                defaultValue: "foo",
-                            },
-                            2: {
-                                type: Scratch.ArgumentType.STRING,
-                                defaultValue: "bar",
+                                defaultValue: "HeLlO wOrLd!",
                             },
                         },
                     },   
                 ],
                 menus: {
-                    letterTypeMenu: [
-                        {
-                            text: "lowercase",
-                            value: "lowercase",
-                        },
-                        {
-                            text: "uppercase",
-                            value: "uppercase",
-                        }
-                    ],
                     startsEndsMenu: ["starts", "ends"]
                 }
             };
@@ -168,10 +124,12 @@
         false() { 
             return false; 
         }
-        randomLetter(args) {
-            let letters = "abcdefghijklmnopqrstuvwxyz";
-            if (args[0] === "uppercase") letters = letters.toUpperCase();
+        rndLetter(args) {
+            let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             return letters.charAt(Math.floor(Math.random() * letters.length));
+        }
+        toLowercase(args) {
+            return args[0].toLowerCase();
         }
         rndString(args) {
             return Math.random() > args[0] / 100 ? args[1] : args[2];
@@ -182,15 +140,6 @@
             };
             console.log(args);
             return format(args[0]).includes(format(args[1]));
-        }
-        textStartsOrEndsWith (args) {
-            const format = function (string) {
-                return string.toString().toLowerCase();
-            };
-            const text = format(args[0]);
-            const startsOrEnds = format(args[1]);
-            const withh = format(args[2]);
-            return (startsOrEnds === "starts") ? (text.startsWith(withh)) : (text.endsWith(withh));
         }
 
         packaged() {
@@ -207,9 +156,6 @@
         scratchX(){
             return false;
              }
-             if_return_else_return (args) {
-                return Boolean(args[0]) ? args[1] : args[2];
-            }
     }
 
     Scratch.extensions.register(new Utilities());
