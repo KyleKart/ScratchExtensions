@@ -26,6 +26,7 @@
         // Listen for messages from the parent window
         window.addEventListener('message', function(event) {
             // Check if the message is a request for editor content
+            if (event.origin !== 'https://your-parent-website.com') return;
             if (event.data === 'getEditorContent') {
                 // Send the editor content back to the parent window
                 parent.postMessage({ type: 'editorContent', content: editor.getValue() }, '*');
