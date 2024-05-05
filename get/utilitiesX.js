@@ -48,18 +48,9 @@
         return Date.now() % 1000;
     }
 
-    ext.turboWarp = function() {
-        return false;
+    ext.electraMod = function() {
+        return Scratch.extensions.isElectraMod;
     }
-    ext.scratchX = function() {
-        return true;
-    }
-    ext.get = function(s1) {
-        return fetch(s1)
-          .then((r) => r.text())
-          .catch(() => "");
-      }
-
 
     var descriptor = {
         blocks: [
@@ -72,11 +63,9 @@
             ['b', 'project packaged?', 'packaged'],
             ['r', 'current millisecond', 'currentMillisecond'],
 
-            ['b', 'is TurboWarp?', 'turboWarp'],
-            ['b', 'is ScratchX?', 'scratchX'],
+            ['b', 'is ElectraMod?', 'turboWarp'],
             ['r', '%s lowercase', 'toLowercase', 'HeLlO wOrLd!'],
             ['r', '%s uppercase', 'toUppercase', 'HeLlO wOrLd!'],
-            ['r', 'GET %s', 'get', 'https://extensions.turbowarp.org/hello.txt'],
 
 
                 ],

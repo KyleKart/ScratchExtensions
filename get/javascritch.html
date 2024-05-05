@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ace Editor</title>
+    <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.7/src-min-noconflict/ace.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.7/src-min-noconflict/theme-monokai.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ace-builds@1.32.7/css/ace.min.css">
+    <style>
+        #editor {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="editor"></div>
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.session.setMode("ace/mode/javascript");
+        editor.setValue(`// Your JavaScript code here`);
+        editor.clearSelection();
+
+        // Listen for messages from the parent window
+        window.addEventListener('message', function(event) {
+            // Check if the message is a request for editor content
+            if (event.data === 'getEditorContent') {
+                // Send the editor content back to the parent window
+                parent.postMessage({ type: 'editorContent', content: editor.getValue() }, '*');
+            }
+        });
+    </script>
+</body>
+</html>
