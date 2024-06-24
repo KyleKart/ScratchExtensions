@@ -4,7 +4,7 @@ class themecolor {
   getInfo() {
       return {
           id: 'themecolor',
-          name: 'Theme Colour',
+          name: 'Theme Color',
           blocks: [
               {
                   opcode: 'themecolorset',
@@ -18,7 +18,6 @@ class themecolor {
                       },
                       color: {
                           type: Scratch.ArgumentType.COLOR,
-                          defaultValue: "#8ba888",
                       },
                   },
               },
@@ -41,26 +40,22 @@ class themecolor {
       const theme = args.theme;
       const color = args.color;
 
-      // Remove existing <meta> tag with name "theme-color"
       const existingMetaTag = document.querySelector('meta[name="theme-color"]');
       if (existingMetaTag) {
           existingMetaTag.remove();
       }
 
-      // Create the new <meta> tag
       const metaTag = document.createElement('meta');
       metaTag.name = 'theme-color';
-      metaTag.content = color; // Use the selected color
+      metaTag.content = color;
       currentColor = color;
 
-      // Check if the theme is dark or light
       if (theme === 'dark') {
           metaTag.media = '(prefers-color-scheme: dark)';
       } else if (theme === 'light') {
           metaTag.media = '(prefers-color-scheme: light)';
       }
 
-      // Append the new <meta> tag to the <head> of the document
       document.head.appendChild(metaTag);
   }
   currentColor(args) {

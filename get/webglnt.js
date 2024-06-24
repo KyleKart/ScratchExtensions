@@ -1,28 +1,48 @@
-class webglnt {
+class WebGLnt {
+    constructor() {
+        this.supportsWebGL = this.isWebGLAvailable();
+    }
+
     getInfo() {
         return {
             id: 'webglnt',
-            name: 'WebGL Modal Removed!',
+            name: 'WebGLn\'t Loader',
             blocks: [
                 {
                     blockType: 'label',
-                    text: "Use this for permanent removal!"
-                  },
+                    text: "WebGL Modal removed!"
+                },
                 {
-                    opcode: "removeModal",
-                    blockType: "reporter",
-                    text: "WebGLn\'t",
+                    opcode: "hasWebgl",
+                    blockType: Scratch.BlockType.BOOLEAN,
+                    text: "has WebGL?",
                 }
             ]
         };
     }
+
+    hasWebgl() {
+        return this.supportsWebGL;
+    }
+
+    isWebGLAvailable() {
+        try {
+            const canvas = document.createElement('canvas');
+            return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+        } catch (e) {
+            return false;
+        }
+    }
 }
-Scratch.extensions.register(new webglnt());
+
+Scratch.extensions.register(new WebGLnt());
+
 function removeElement(selector) {
     const element = document.querySelector(selector);
-    return element && (element.outerHTML = '', !0);
+    return element && (element.outerHTML = '', true);
 }
-const selectors = ['.scratchCategoryMenuItem.scratchCategoryId-webglnt', '.ReactModal__Overlay.ReactModal__Overlay--after-open.browser-modal_modal-overlay_3TDyF'];
+
+const selectors = ['.ReactModal__Overlay.ReactModal__Overlay--after-open.browser-modal_modal-overlay_3TDyF'];
 selectors.forEach(selector => {
     const interval = setInterval(() => {
         removeElement(selector) && clearInterval(interval);
