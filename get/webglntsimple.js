@@ -8,14 +8,3 @@ const selector = '.ReactModal__Overlay.ReactModal__Overlay--after-open.browser-m
 const interval = setInterval(() => {
     if (removeElement(selector)) clearInterval(interval);
 }, 100);
-
-class WebGLnt {
-    getInfo() {
-        return {
-            id: 'webglnt',
-            name: 'WebGLn\'t Loader',
-        };
-    }
-}
-
-Scratch.extensions.register(new WebGLnt());
