@@ -4,7 +4,7 @@ function removeElement(selector) {
     return !!element;
 }
 
-const selector = '.ReactModal__Overlay.ReactModal__Overlay--after-open.browser-modal_modal-overlay_3TDyF';
+const selector = '.ReactModal__Overlay';
 const interval = setInterval(() => {
     if (removeElement(selector)) clearInterval(interval);
 }, 100);
