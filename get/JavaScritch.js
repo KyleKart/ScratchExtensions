@@ -368,7 +368,7 @@ function updateAceEditorTheme() {
 }
 
 vm.runtime.on('PROJECT_LOADED', () => {
-  const storedData = vm.runtime.extensionStorage['javascritch'];
+  const storedData = vm.runtime.extensionStorage['ecmawarp'];
 
   if (storedData && storedData.editorContent) {
     // Set the Ace Editor content to the stored data
@@ -380,7 +380,7 @@ vm.runtime.on('PROJECT_LOADED', () => {
   }
 });
 editor.getSession().on('change', function () {
-  vm.runtime.extensionStorage['javascritch'] = {
+  vm.runtime.extensionStorage['ecmawarp'] = {
     editorContent: editor.getValue()
   };
 });
