@@ -1,13 +1,21 @@
+function waitForElement(selector, callback) {
+    const observer = new MutationObserver(() => {
+        if (document.querySelector(selector)) {
+            observer.disconnect();
+            callback();
+        }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+}
+
 function removeElement(selector) {
     const element = document.querySelector(selector);
     if (element) element.remove();
-    return !!element;
 }
 
 const selector = '.ReactModal__Overlay';
-const interval = setInterval(() => {
-    if (removeElement(selector)) clearInterval(interval);
-}, 100);
+waitForElement(selector, () => removeElement(selector));
 
 class WebGLnt {
     getInfo() {
