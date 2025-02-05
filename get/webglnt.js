@@ -1,8 +1,4 @@
 class WebGLnt {
-    constructor() {
-        this.supportsWebGL = this.isWebGLAvailable();
-    }
-
     getInfo() {
         return {
             id: 'webglnt',
@@ -16,22 +12,16 @@ class WebGLnt {
                     opcode: "hasWebgl",
                     blockType: Scratch.BlockType.BOOLEAN,
                     text: "has WebGL?",
+                    hideFromPalette: true,
+                },
+                {
+                    opcode: "noWebgl",
+                    blockType: Scratch.BlockType.BONGO,
+                    text: "save WebGL loader",
+                    hideFromPalette: false,
                 }
             ]
         };
-    }
-
-    hasWebgl() {
-        return this.supportsWebGL;
-    }
-
-    isWebGLAvailable() {
-        try {
-            const canvas = document.createElement('canvas');
-            return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
-        } catch (e) {
-            return false;
-        }
     }
 }
 
