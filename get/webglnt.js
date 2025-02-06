@@ -50,4 +50,4 @@ if (targetDiv) {
     targetDiv.parentNode.insertBefore(canvas, targetDiv.nextSibling);
 }
 
-console.log(Scratch.vm.runtime.targets);
+console.log(cratch.vm.runtime.targets[1].name);
