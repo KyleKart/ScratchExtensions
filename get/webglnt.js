@@ -70,6 +70,7 @@ function drawSprites() {
     const sprites = Scratch.vm.runtime.targets.filter(target => !target.isStage);
 
     sprites.forEach(sprite => {
+        if (!sprite.visible) return;
         const x = canvas.width / 2 + sprite.x;
         const y = canvas.height / 2 - sprite.y;
         const size = sprite.size;
