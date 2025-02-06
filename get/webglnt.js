@@ -81,11 +81,11 @@ function drawSprites() {
 
         // Get the current costume
         const costume = sprite.getCostume();
-        if (!costume) return;
+        if (!costume || !costume.baseLayer) return;
 
         // Create a new Image element to draw the costume
         const img = new Image();
-        img.src = costume.baseLayerMD5;
+        img.src = costume.baseLayer.dataURI;  // Use the dataURI of the costume
         img.onload = () => {
             ctx.save();
             ctx.translate(x, y);
