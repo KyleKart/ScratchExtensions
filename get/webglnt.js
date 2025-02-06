@@ -78,27 +78,29 @@ function drawSprites() {
         const y = canvas.height / 2 - sprite.y; // Flip Y
         const size = sprite.size;
         const angle = sprite.direction * (Math.PI / 180);
-
-        // Get the current costume
-        const costume = sprite.getCostume();
-        if (!costume || !costume.baseLayer) return;
-
+    
+        // Get the index of the current costume
+        const costumeIndex = sprite.currentCostume;
+        const costume = sprite.costumes[costumeIndex]; // Get the costume by index
+    
+        if (!costume) return;
+    
         // Create a new Image element to draw the costume
         const img = new Image();
-        img.src = costume.baseLayer.dataURI;  // Use the dataURI of the costume
+        img.src = costume.asset.encodeDataURI();  // Use the dataURI of the costume
         img.onload = () => {
             ctx.save();
             ctx.translate(x, y);
             ctx.rotate(angle);
-
+    
             // Draw the costume on the canvas with the correct size
             const width = costume.width * size / 100;
             const height = costume.height * size / 100;
             ctx.drawImage(img, -width / 2, -height / 2, width, height);
-
+    
             ctx.restore();
         };
-    });
+    });    
 
     requestAnimationFrame(drawSprites);
 }
