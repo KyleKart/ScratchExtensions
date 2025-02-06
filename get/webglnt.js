@@ -38,3 +38,13 @@ selectors.forEach(selector => {
         removeElement(selector) && clearInterval(interval);
     }, 100);
 });
+
+const targetDiv = document.querySelector('.stage-wrapper_stage-wrapper_2bejr.stage-wrapper_offset-controls_1TSoY.box_box_2jjDp');
+
+const newElement = document.createElement('div');
+newElement.textContent = 'This is a new element';
+newElement.classList.add('new-class'); // Add a class if needed
+
+if (targetDiv) {
+    targetDiv.parentNode.insertBefore(newElement, targetDiv.nextSibling);
+}
