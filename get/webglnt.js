@@ -22,7 +22,7 @@ class WebGLnt {
                 }
             ]
         };
-    }
+    }  
 }
 
 Scratch.extensions.register(new WebGLnt());
@@ -49,3 +49,5 @@ if (targetDiv) {
 
     targetDiv.parentNode.insertBefore(canvas, targetDiv.nextSibling);
 }
+
+console.log(Scratch.vm.runtime.targets);
