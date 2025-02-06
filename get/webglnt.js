@@ -62,7 +62,7 @@ if (targetDiv) {
     targetDiv.parentNode.insertBefore(canvas, targetDiv.nextSibling);
 }
 
-// Draw Sprites on Canvas
+// Draw Sprites with Costumes on Canvas
 function drawSprites() {
     const canvas = document.getElementById('scratchCanvas');
     if (!canvas) return;
@@ -79,12 +79,25 @@ function drawSprites() {
         const size = sprite.size;
         const angle = sprite.direction * (Math.PI / 180);
 
-        ctx.save();
-        ctx.translate(x, y);
-        ctx.rotate(angle);
-        ctx.fillStyle = 'blue';
-        ctx.fillRect(-size / 2, -size / 2, size, size);
-        ctx.restore();
+        // Get the current costume
+        const costume = sprite.getCostume();
+        if (!costume) return;
+
+        // Create a new Image element to draw the costume
+        const img = new Image();
+        img.src = costume.baseLayerMD5;
+        img.onload = () => {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(angle);
+
+            // Draw the costume on the canvas with the correct size
+            const width = costume.width * size / 100;
+            const height = costume.height * size / 100;
+            ctx.drawImage(img, -width / 2, -height / 2, width, height);
+
+            ctx.restore();
+        };
     });
 
     requestAnimationFrame(drawSprites);
