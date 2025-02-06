@@ -63,6 +63,8 @@ if (targetDiv) {
 function drawSprites() {
     const canvas = document.getElementById('scratchCanvas');
     if (!canvas) return;
+    canvas.style.border = '0.0625rem solid var(--ui-black-transparent)';
+    canvas.style.backgroundColor = 'white';
     
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
