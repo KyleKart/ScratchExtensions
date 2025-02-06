@@ -50,6 +50,7 @@ if (targetDiv) {
     targetDiv.parentNode.insertBefore(canvas, targetDiv.nextSibling);
 }
 
-console.log(Scratch.vm.runtime.targets[1].name);
-console.log(Scratch.vm.runtime.targets[1]);
-console.log(Scratch.vm.runtime.targets);
+const sprites = Scratch.vm.runtime.targets.filter(target => !target.isStage);
+sprites.forEach(sprite => {
+    console.log(`Sprite Name: ${sprite.name}, X: ${sprite.x}, Y: ${sprite.y}`);
+});
