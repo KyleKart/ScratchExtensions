@@ -51,3 +51,5 @@ if (targetDiv) {
 }
 
 console.log(Scratch.vm.runtime.targets[1].name);
+console.log(Scratch.vm.runtime.targets[1]);
+console.log(Scratch.vm.runtime.targets);
