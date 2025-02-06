@@ -36,7 +36,6 @@ class WebGLnt {
 
 Scratch.extensions.register(new WebGLnt());
 
-// Remove WebGL Modal
 function removeElement(selector) {
     const element = document.querySelector(selector);
     return element && (element.outerHTML = '', true);
@@ -49,7 +48,6 @@ selectors.forEach(selector => {
     }, 100);
 });
 
-// Create and Insert Canvas
 const targetDiv = document.querySelector('.stage-wrapper_stage-wrapper_2bejr.stage-wrapper_offset-controls_1TSoY.box_box_2jjDp');
 
 if (targetDiv) {
@@ -62,7 +60,6 @@ if (targetDiv) {
     targetDiv.parentNode.insertBefore(canvas, targetDiv.nextSibling);
 }
 
-// Draw Sprites on Canvas
 function drawSprites() {
     const canvas = document.getElementById('scratchCanvas');
     if (!canvas) return;
@@ -70,22 +67,19 @@ function drawSprites() {
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Get sprites (ignore stage)
     const sprites = Scratch.vm.runtime.targets.filter(target => !target.isStage);
 
     sprites.forEach(sprite => {
-        // Check if the sprite is visible
-        if (!sprite.visible) return; // Skip drawing if the sprite is hidden
-
+        if (!sprite.visible) return;
         const x = canvas.width / 2 + sprite.x;
-        const y = canvas.height / 2 - sprite.y; // Flip Y
+        const y = canvas.height / 2 - sprite.y;
         const size = sprite.size;
         const angle = sprite.direction * (Math.PI / 180);
 
         ctx.save();
         ctx.translate(x, y);
         ctx.rotate(angle);
-        ctx.fillStyle = 'blue';  // Placeholder: Draw a blue square instead of the costume
+        ctx.fillStyle = 'blue';
         ctx.fillRect(-size / 2, -size / 2, size, size);
         ctx.restore();
     });
@@ -93,4 +87,4 @@ function drawSprites() {
     requestAnimationFrame(drawSprites);
 }
 
-drawSprites(); // Start the loop
+drawSprites();
