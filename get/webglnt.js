@@ -2,7 +2,7 @@ class WebGLnt {
     getInfo() {
         return {
             id: 'webglnt',
-            name: 'WebGLn\'t Loader',
+            name: "WebGLn’t Loader",
             blocks: [
                 {
                     blockType: 'label',
@@ -22,11 +22,21 @@ class WebGLnt {
                 }
             ]
         };
-    }  
+    }
+
+    hasWebgl() {
+        try {
+            const canvas = document.createElement("canvas");
+            return !!window.WebGLRenderingContext && !!canvas.getContext("webgl");
+        } catch (e) {
+            return false;
+        }
+    }
 }
 
 Scratch.extensions.register(new WebGLnt());
 
+// Remove WebGL Modal
 function removeElement(selector) {
     const element = document.querySelector(selector);
     return element && (element.outerHTML = '', true);
@@ -39,10 +49,12 @@ selectors.forEach(selector => {
     }, 100);
 });
 
+// Create and Insert Canvas
 const targetDiv = document.querySelector('.stage-wrapper_stage-wrapper_2bejr.stage-wrapper_offset-controls_1TSoY.box_box_2jjDp');
 
 if (targetDiv) {
     const canvas = document.createElement('canvas');
+    canvas.id = 'scratchCanvas';
     canvas.width = 480;
     canvas.height = 360;
     canvas.style.border = '1px solid black';
@@ -50,7 +62,32 @@ if (targetDiv) {
     targetDiv.parentNode.insertBefore(canvas, targetDiv.nextSibling);
 }
 
-const sprites = Scratch.vm.runtime.targets.filter(target => !target.isStage);
-sprites.forEach(sprite => {
-    console.log(`Sprite Name: ${sprite.name}, X: ${sprite.x}, Y: ${sprite.y}`);
-});
+// Draw Sprites on Canvas
+function drawSprites() {
+    const canvas = document.getElementById('scratchCanvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Get sprites (ignore stage)
+    const sprites = Scratch.vm.runtime.targets.filter(target => !target.isStage);
+
+    sprites.forEach(sprite => {
+        const x = canvas.width / 2 + sprite.x;
+        const y = canvas.height / 2 - sprite.y; // Flip Y
+        const size = sprite.size;
+        const angle = sprite.direction * (Math.PI / 180);
+
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(angle);
+        ctx.fillStyle = 'blue';
+        ctx.fillRect(-size / 2, -size / 2, size, size);
+        ctx.restore();
+    });
+
+    requestAnimationFrame(drawSprites);
+}
+
+drawSprites(); // Start the loop
