@@ -18,7 +18,7 @@ class WebGLnt {
                     opcode: "noWebgl",
                     blockType: Scratch.BlockType.COMMAND,
                     text: "save WebGL loader",
-                    hideFromPalette: false,
+                    hideFromPalette: true,
                 }
             ]
         };
