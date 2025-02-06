@@ -12,7 +12,7 @@ class WebGLnt {
                     opcode: "hasWebgl",
                     blockType: Scratch.BlockType.BOOLEAN,
                     text: "has WebGL?",
-                    hideFromPalette: true,
+                    hideFromPalette: false,
                 },
                 {
                     opcode: "noWebgl",
