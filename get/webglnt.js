@@ -12,7 +12,7 @@ class WebGLnt {
                     opcode: "hasWebgl",
                     blockType: Scratch.BlockType.BOOLEAN,
                     text: "has WebGL?",
-                    hideFromPalette: false,
+                    hideFromPalette: true,
                 },
                 {
                     opcode: "noWebgl",
@@ -74,6 +74,9 @@ function drawSprites() {
     const sprites = Scratch.vm.runtime.targets.filter(target => !target.isStage);
 
     sprites.forEach(sprite => {
+        // Check if the sprite is visible
+        if (!sprite.visible) return; // Skip drawing if the sprite is hidden
+
         const x = canvas.width / 2 + sprite.x;
         const y = canvas.height / 2 - sprite.y; // Flip Y
         const size = sprite.size;
@@ -82,7 +85,7 @@ function drawSprites() {
         ctx.save();
         ctx.translate(x, y);
         ctx.rotate(angle);
-        ctx.fillStyle = 'blue';
+        ctx.fillStyle = 'blue';  // Placeholder: Draw a blue square instead of the costume
         ctx.fillRect(-size / 2, -size / 2, size, size);
         ctx.restore();
     });
