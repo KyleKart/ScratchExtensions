@@ -1,14 +1,6 @@
 (function (Scratch) {
     'use strict';
-  
-  if (!Scratch.extensions.unsandboxed) {
-    throw new Error('The Legacy Blocks extension needs to be run unsandboxed!');
-  }
-  const makeLabel = (text) => ({
-      blockType: 'label',
-      text: text
-    });
-      // Defining all our CSS styles
+
 const myStyles = `
 display: flex;
 flex-direction: row;
@@ -34,9 +26,19 @@ element2.remove();
       getInfo() {
         return {
           id: 'titlebar',
-          name: 'TitleBar',
+          name: 'Menu-bar Changer',
+          color1: '#ff4c4c',
+          blocks: [
+            {
+              opcode: 'title',
+              blockType: Scratch.BlockType.COMMAND,
+              text: 'Keep to save menu-bar changer.',
+            },
+          ],
         };
+        
       }
     }
   
-  })(window.Scratch);
+    Scratch.extensions.register(new TitleBar());
+  })(Scratch);
