@@ -4,8 +4,9 @@
   ext._getStatus = function() {
     if (!navigator.clipboard) {
         return { status: 1, msg: 'Clipboard API not supported.' }; 
+    } else {
+      return { status: 2, msg: 'Ready' };
     }
-    return { status: 2, msg: 'Ready' };
 };
 
   ext.whenCopied = function() {
