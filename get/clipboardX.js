@@ -1,12 +1,15 @@
 (function (ext) {
+  let copiedBool = false;
+  let pastedBool = false;
+  let lastPastedText = "";
+  
   ext._shutdown = function() {};
 
   ext._getStatus = function() {
-    if (!navigator.clipboard) {
-        return { status: 1, msg: 'Clipboard API not supported.' }; 
-    } else {
-      return { status: 2, msg: 'Ready' };
+    if (!navigator.clipboard || !navigator.clipboard.writeText || !navigator.clipboard.readText) {
+        return { status: 1, msg: "Clipboard not supported" };
     }
+    return { status: 2, msg: "Ready" };
 };
 
   ext.whenCopied = function() {
@@ -35,13 +38,14 @@
 
   ext.clipboard = function() {
     if (navigator.clipboard && navigator.clipboard.readText) {
-      return JSON.stringify(navigator.clipboard.readText()) ?? "";
+            return navigator.clipboard.readText() ?? "";
     }
     return "";
-  };
+  }
+
 
   ext.canClipboard = function() {
-    return navigator.clipboard;
+    return !!navigator.clipboard;
   };
 
   ext.getLastPastedText = function() {
