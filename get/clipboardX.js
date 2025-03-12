@@ -7,7 +7,7 @@
 
   ext._getStatus = function() {
     if (!navigator.clipboard || !navigator.clipboard.writeText || !navigator.clipboard.readText) {
-        return { status: 1, msg: "Clipboard not supported" };
+        return { status: 1, msg: "Clipboard API not supported" };
     }
     return { status: 2, msg: "Ready" };
 };
@@ -30,6 +30,7 @@
 
   ext.setClipboard = function(text) {
     navigator.clipboard.writeText(text);
+    copiedBool = true;
   };
 
   ext.resetClipboard = function() {
@@ -38,11 +39,10 @@
 
   ext.clipboard = function() {
     if (navigator.clipboard && navigator.clipboard.readText) {
-            return navigator.clipboard.readText() ?? "";
+    return navigator.clipboard.readText() ?? "";
     }
     return "";
   }
-
 
   ext.canClipboard = function() {
     return !!navigator.clipboard;
@@ -51,6 +51,22 @@
   ext.getLastPastedText = function() {
     return lastPastedText;
   };
+
+  document.addEventListener('copy', function() {
+    copiedBool = true;
+  });
+
+  document.addEventListener('paste', function(event) {
+    pastedBool = true;
+    const clipboardData = event.clipboardData || window.clipboardData;
+    
+    if (clipboardData) {
+      const pastedText = clipboardData.getData("Text");
+      lastPastedText = pastedText;
+    } else {
+      lastPastedText = "";
+    }
+  });
 
   var blocks = [
     ['h', 'when something is copied', 'whenCopied'],
