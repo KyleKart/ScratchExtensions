@@ -2,8 +2,11 @@
   ext._shutdown = function() {};
 
   ext._getStatus = function() {
-      return {status: 2, msg: 'Ready'};
-  };
+    if (!navigator.clipboard) {
+        return { status: 1, msg: 'Clipboard API not supported.' }; 
+    }
+    return { status: 2, msg: 'Ready' };
+};
 
   ext.whenCopied = function() {
     if (copiedBool) {
