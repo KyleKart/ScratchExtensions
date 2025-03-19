@@ -24,6 +24,9 @@
     ext.commentArray = function(input) { 
         return input;
     };
+    ext.commentRam = function(input) { 
+        return input;
+    };
 
     var blocks = [
     ['h', '// %s', 'commentHat', ''],
@@ -33,6 +36,7 @@
     ['b', '%b // %s', 'commentBoolean', ''],
     ['obj', '%s // %s', 'commentObj', ''],
     ['a', '%s // %s', 'commentArray', ''],
+    ['ram', '%s // %s', 'commentRam', ''],
     ];
     var colors = null;
 
