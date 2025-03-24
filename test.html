@@ -14,6 +14,38 @@
         link.click();
         document.body.removeChild(link);
       }
+
+      function filterExtensions() {
+        let searchInput = document.getElementById('search-input').value.toLowerCase();
+        let selectedTags = getSelectedTags();  
+
+        let extensions = document.querySelectorAll('.extensions a');
+
+    extensions.forEach(function(extension) {
+        let title = extension.querySelector('h3').textContent.toLowerCase();
+        let description = extension.querySelector('p').textContent.toLowerCase();
+
+        let extensionTags = extension.classList;
+
+        let matchesSearch = title.includes(searchInput) || description.includes(searchInput);
+        let matchesTags = selectedTags.every(tag => extensionTags.contains(tag));
+
+        if (matchesSearch && matchesTags) {
+            extension.style.display = '';
+        } else {
+            extension.style.display = 'none';
+        }
+    });
+}
+
+function getSelectedTags() {
+    let selectedTags = [];
+    let checkboxes = document.querySelectorAll('.tag-filter input[type="checkbox"]:checked');
+    checkboxes.forEach(function(checkbox) {
+        selectedTags.push(checkbox.value);
+    });
+    return selectedTags;
+}
       </script>
 <style>
 
