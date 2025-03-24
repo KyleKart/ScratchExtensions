@@ -42,7 +42,8 @@ function getSelectedTags() {
     let selectedTags = [];
     let checkboxes = document.querySelectorAll('.tag-filter input[type="checkbox"]:checked');
     checkboxes.forEach(function(checkbox) {
-        selectedTags.push(checkbox.value);
+        let tagClass = checkbox.getAttribute('data-tag');
+        selectedTags.push(tagClass);
     });
     return selectedTags;
 }
