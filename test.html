@@ -16,41 +16,22 @@
       }
 
       function filterExtensions() {
-    let selectedTags = getSelectedTags();
-    let searchQuery = document.getElementById('searchBar').value.toLowerCase();
+        let searchInput = document.getElementById('search-input').value.toLowerCase();
 
-    let extensionItems = document.querySelectorAll('#extension-item');
+        let extensions = document.querySelectorAll('.extensions a');
 
-    extensionItems.forEach(function(item) {
-        let tags = item.querySelectorAll('.tag');
-        let title = item.querySelector('h3').textContent.toLowerCase();
-        let description = item.querySelector('p').textContent.toLowerCase();
+    extensions.forEach(function(extension) {
+        let title = extension.querySelector('h3').textContent.toLowerCase();
+        let description = extension.querySelector('p').textContent.toLowerCase();
 
-        let hasMatchingTag = selectedTags.some(function(tag) {
-            return Array.from(tags).some(function(span) {
-                return span.classList.contains(tag);
-            });
-        });
 
-        let matchesSearch = title.includes(searchQuery) || description.includes(searchQuery);
-
-        if ((hasMatchingTag || selectedTags.length === 0) && (matchesSearch || searchQuery === "")) {
-            item.style.display = 'block';
+        let matchesSearch = title.includes(searchInput) || description.includes(searchInput);
+        if (matchesSearch) {
+            extension.style.display = '';
         } else {
-            item.style.display = 'none';
+            extension.style.display = 'none';
         }
     });
-}
-
-function getSelectedTags() {
-    let selectedTags = [];
-    let checkboxes = document.querySelectorAll('.tag-filter input[type="checkbox"]:checked');
-    
-    checkboxes.forEach(function(checkbox) {
-        selectedTags.push(checkbox.value);
-    });
-    
-    return selectedTags;
 }
       </script>
 <style>
@@ -292,11 +273,6 @@ p {
       </div>
       <div class="search-bar">
         <input type="text" id="search-input" placeholder="Search extensions..." oninput="filterExtensions()">
-    </div>
-    <div class="tag-filter">
-        <label><input type="checkbox" value="T" onchange="filterExtensions()"> TurboWarp</label>
-        <label><input type="checkbox" value="sX" onchange="filterExtensions()"> ScratchX</label>
-        <label><input type="checkbox" value="X3" onchange="filterExtensions()"> X3non</label>
     </div>
       <div class="section extensions-outer">
         <div class="extensions">
