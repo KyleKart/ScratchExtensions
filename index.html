@@ -14,8 +14,40 @@
         link.click();
         document.body.removeChild(link);
       }
+
+      function filterExtensions() {
+        let searchInput = document.getElementById('search-input').value.toLowerCase();
+
+        let extensions = document.querySelectorAll('.extensions a');
+
+    extensions.forEach(function(extension) {
+        let title = extension.querySelector('h3').textContent.toLowerCase();
+        let description = extension.querySelector('p').textContent.toLowerCase();
+
+
+        let matchesSearch = title.includes(searchInput) || description.includes(searchInput);
+        if (matchesSearch) {
+            extension.style.display = '';
+        } else {
+            extension.style.display = 'none';
+        }
+    });
+}
       </script>
 <style>
+.search-bar {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-bar input {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    border: 5px solid #1f1f1f7c;
+    border-radius: 8px;
+    background-color: rgb(45 45 45);
+}
 
 :root {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -194,6 +226,9 @@ p {
         <p>My Scratch Extensions which I like the most or think are the most complete!</p>
         <p>Save the file or copy its text as most of these need to be unsandboxed to work.</p>
       </div>
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search extensions..." oninput="filterExtensions()">
+    </div>
       <div class="section extensions-outer">
         <div class="extensions">
             <a href="https://kylekart.github.io/ScratchExtensions/get/pitchano.js">
