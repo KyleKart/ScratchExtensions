@@ -10,7 +10,7 @@
   <script>
     function sendMessage() {
       const message = 'Hello from the iframe, the page has loaded!';
-      window.parent.postMessage(message, '*'); // '*' allows any origin; use a specific origin for security
+      window.parent.postMessage(message, '*');
     }
     window.addEventListener('load', function() {
       setTimeout(sendMessage, 100);
