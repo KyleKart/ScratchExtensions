@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <h1>Message Sender</h1>
+  <p>This will send a message to the parent when the iframe loads.</p>
+  <script>
+    window.onload = function() {
+      const message = 'Hello from the iframe, the page has loaded!';
+      window.parent.postMessage(message, '*');
+    };
+  </script>
+</body>
+</html>
