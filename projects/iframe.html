@@ -8,10 +8,13 @@
   <h1>Message Sender</h1>
   <p>This will send a message to the parent when the iframe loads.</p>
   <script>
-    window.onload = function() {
+    function sendMessage() {
       const message = 'Hello from the iframe, the page has loaded!';
-      window.parent.postMessage(message, '*');
-    };
+      window.parent.postMessage(message, '*'); // '*' allows any origin; use a specific origin for security
+    }
+    window.addEventListener('load', function() {
+      setTimeout(sendMessage, 100);
+    });
   </script>
 </body>
 </html>
