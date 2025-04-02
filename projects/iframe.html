@@ -9,12 +9,13 @@
   <p>This will send a message to the parent when the iframe loads.</p>
   <script>
     function sendMessage() {
-      const message = 'Hello from the iframe, the page has loaded!';
+      const message = 'Hello from the iframe!';
       window.parent.postMessage(message, '*');
     }
-    window.addEventListener('load', function() {
-      setTimeout(sendMessage, 100);
-    });
+
+    window.onload = function() {
+      setInterval(sendMessage, 500);
+    }
   </script>
 </body>
 </html>
