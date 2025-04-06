@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Page with Iframes</title>
+</head>
+<body>
+    <!-- Controlled iframe -->
+    <iframe id="iframe1" src="radialkeyboard2.html" style="width: 100%; height: 200px;"></iframe>
+
+    <!-- Uncontrolled iframe -->
+    <iframe id="iframe2" src="https://discord.com/app" style="width: 100%; height: 200px;"></iframe>
+
+    <script>
+        // Get both iframe elements
+        const iframe1 = document.getElementById('iframe1');
+        const iframe2 = document.getElementById('iframe2');
+
+        // Send message from iframe1 to iframe2 through the parent page
+        function sendMessageToIframe2(message) {
+            // Send the message to iframe2
+            iframe2.contentWindow.postMessage(message, '*'); // '*' means it can be sent to any origin
+        }
+
+        // Listen for messages from the controlled iframe
+        window.addEventListener('message', (event) => {
+            // Ensure the message is from the controlled iframe
+            if (event.origin !== iframe1.src) {
+                console.error('Message received from an unknown source:', event.origin);
+                return;
+            }
+
+            // Log the received message from iframe1
+            console.log('Received message from iframe1:', event.data);
+
+            // Forward the message to iframe2 (uncontrolled iframe)
+            sendMessageToIframe2(event.data);
+        });
+    </script>
+</body>
+</html>
