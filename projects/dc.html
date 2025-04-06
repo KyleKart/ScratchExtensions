@@ -33,6 +33,7 @@
         // Get both iframe elements
         const iframe1 = document.getElementById('iframe1');
         const iframe2 = document.getElementById('iframe2');
+        const iframeOrigin = new URL(iframe1.src).origin;
 
         // Send message from iframe1 to iframe2 through the parent page
         function sendMessageToIframe2(message) {
@@ -43,7 +44,7 @@
         // Listen for messages from the controlled iframe
         window.addEventListener('message', (event) => {
             // Ensure the message is from the controlled iframe
-            if (event.origin !== iframe1.src) {
+            if (event.origin !== iframeOrigin) {
                 console.error('Message received from an unknown source:', event.origin);
                 return;
             }
