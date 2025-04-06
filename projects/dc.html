@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parent Page with Iframes</title>
 </head>
+<style>
+            /* Remove margin and padding for the body and html */
+            body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        /* Make both iframes fill the screen horizontally */
+        iframe {
+            width: 50%;  /* Each iframe takes up half the width of the screen */
+            height: 100%;  /* Each iframe takes up full height of the screen */
+            border: none;  /* Remove borders around the iframes */
+            float: left;   /* Float iframes next to each other horizontally */
+        }
+
+</style>
 <body>
     <!-- Controlled iframe -->
     <iframe id="iframe1" src="RadialKeyboard2.html" style="width: 100%; height: 100%;"></iframe>
