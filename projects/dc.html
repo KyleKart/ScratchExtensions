@@ -19,19 +19,24 @@ body {
 }
 
 /* Make both iframes fill the screen horizontally */
-iframe {
-    width: 50%;   /* Each iframe takes up half the screen width */
+#iframe1 {
+    width: 70%;   /* Each iframe takes up half the screen width */
+    height: 100%; /* Each iframe fills the height of the screen */
+    border: none; /* Remove borders */
+}
+#iframe2 {
+    width: 30%;   /* Each iframe takes up half the screen width */
     height: 100%; /* Each iframe fills the height of the screen */
     border: none; /* Remove borders */
 }
 
 </style>
 <body>
+        <!-- Uncontrolled iframe -->
+        <iframe id="iframe2" src="https://discord.com/app" style="width: 100%; height: 100%;"></iframe>
+
     <!-- Controlled iframe -->
     <iframe id="iframe1" src="RadialKeyboard2.html" style="width: 100%; height: 100%;"></iframe>
-
-    <!-- Uncontrolled iframe -->
-    <iframe id="iframe2" src="https://discord.com/app" style="width: 100%; height: 100%;"></iframe>
 
     <script>
         // Get both iframe elements
