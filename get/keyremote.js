@@ -83,10 +83,11 @@
               "Up Arrow", "Down Arrow", "Left Arrow", "Right Arrow",
               "Enter",
               "Play/Pause", "Track Next", "Track Previous", "Stop",
+              "Fast Forward", "Rewind",
               "Mute", "Volume Up", "Volume Down",
               "Search", "Home", "Back",
               "Forward", "Refresh", "Favorites"
-            ]
+            ]            
           }
         }
       };
@@ -100,19 +101,15 @@
           "ArrowDown": "Down Arrow",
           "ArrowLeft": "Left Arrow",
           "ArrowRight": "Right Arrow",
-          "MediaPlayPause": "Play/Pause",
-          "MediaTrackNext": "Track Next",
-          "MediaTrackPrevious": "Track Previous",
-          "MediaStop": "Stop",
+          "AudioVolumeDown": "Volume Down",
           "AudioVolumeMute": "Mute",
           "AudioVolumeUp": "Volume Up",
-          "AudioVolumeDown": "Volume Down",
-          "Search": "Search",
-          "Home": "Home",
-          "Back": "Back",
-          "Forward": "Forward",
-          "Refresh": "Refresh",
-          "Favorites": "Favorites"
+          "MediaFastForward": "Fast Forward",
+          "MediaPlayPause": "Play/Pause",
+          "MediaRewind": "Rewind",
+          "MediaStop": "Stop",
+          "MediaTrackNext": "Track Next",
+          "MediaTrackPrevious": "Track Previous"
         };
         return reverseMapping[key] || key;
       } else {
@@ -122,23 +119,19 @@
           "Down Arrow": "ArrowDown",
           "Left Arrow": "ArrowLeft",
           "Right Arrow": "ArrowRight",
-          "Play/Pause": "MediaPlayPause",
-          "Track Next": "MediaTrackNext",
-          "Track Previous": "MediaTrackPrevious",
-          "Stop": "MediaStop",
+          "Volume Down": "AudioVolumeDown",
           "Mute": "AudioVolumeMute",
           "Volume Up": "AudioVolumeUp",
-          "Volume Down": "AudioVolumeDown",
-          "Search": "Search",
-          "Home": "Home",
-          "Back": "Back",
-          "Forward": "Forward",
-          "Refresh": "Refresh",
-          "Favorites": "Favorites"
+          "Fast Forward": "MediaFastForward",
+          "Play/Pause": "MediaPlayPause",
+          "Rewind": "MediaRewind",
+          "Stop": "MediaStop",
+          "Track Next": "MediaTrackNext",
+          "Track Previous": "MediaTrackPrevious"
         };
         return forwardMapping[key] || key;
       }
-    }
+    }    
 
     detectKeyStatus(key, continuous) {
       key = this.formatKeyName(key, false);
