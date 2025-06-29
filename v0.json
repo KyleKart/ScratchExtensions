@@ -35,7 +35,7 @@
       "id": "Async Skins",
       "name": "Async Skins",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/Async Skins.png",
+      "image": "../images/Async Skins.png",
       "by": [
         {
           "name": "Mistium",
@@ -48,7 +48,7 @@
       "id": "Canvas",
       "name": "Canvas",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/Canvas.png",
+      "image": "../images/Canvas.png",
       "by": [
         {
           "name": "Mistium",
@@ -61,7 +61,7 @@
       "id": "DiscordBot",
       "name": "DiscordBot",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/DiscordBot.png",
+      "image": "../images/DiscordBot.png",
       "by": [
         {
           "name": "Mistium",
@@ -74,7 +74,7 @@
       "id": "EvalPlus",
       "name": "EvalPlus",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/EvalPlus.png",
+      "image": "../images/EvalPlus.png",
       "by": [
         {
           "name": "Mistium",
@@ -87,7 +87,7 @@
       "id": "Github",
       "name": "Github",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/Github.png",
+      "image": "../images/Github.png",
       "by": [
         {
           "name": "Mistium",
@@ -100,7 +100,7 @@
       "id": "HTMLInputs",
       "name": "HTMLInputs",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/HTMLInputs.png",
+      "image": "../images/HTMLInputs.png",
       "by": [
         {
           "name": "Mistium",
@@ -113,7 +113,7 @@
       "id": "Iframe+",
       "name": "Iframe+",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/Iframe+.png",
+      "image": "../images/Iframe+.png",
       "by": [
         {
           "name": "Mistium",
@@ -126,7 +126,7 @@
       "id": "IndexedDB",
       "name": "IndexedDB",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/IndexedDB.png",
+      "image": "../images/IndexedDB.png",
       "by": [
         {
           "name": "Mistium",
@@ -139,7 +139,7 @@
       "id": "KeyHistory",
       "name": "KeyHistory",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/KeyHistory.png",
+      "image": "../images/KeyHistory.png",
       "by": [
         {
           "name": "Mistium",
@@ -152,7 +152,7 @@
       "id": "MediaUtils",
       "name": "MediaUtils",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/MediaUtils.png",
+      "image": "../images/MediaUtils.png",
       "by": [
         {
           "name": "Mistium",
@@ -165,7 +165,7 @@
       "id": "Mist's Utils",
       "name": "Mist's Utils",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/Mist's Utils.png",
+      "image": "../images/Mist's Utils.png",
       "by": [
         {
           "name": "Mistium",
@@ -178,7 +178,7 @@
       "id": "MistFetch",
       "name": "MistFetch",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/MistFetch.png",
+      "image": "../images/MistFetch.png",
       "by": [
         {
           "name": "Mistium",
@@ -191,7 +191,7 @@
       "id": "OASM",
       "name": "OASM",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/OASM.png",
+      "image": "../images/OASM.png",
       "by": [
         {
           "name": "Mistium",
@@ -204,7 +204,7 @@
       "id": "Python",
       "name": "Python",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/Python.png",
+      "image": "../images/Python.png",
       "by": [
         {
           "name": "Mistium",
@@ -217,7 +217,7 @@
       "id": "RDF",
       "name": "RDF",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/RDF.png",
+      "image": "../images/RDF.png",
       "by": [
         {
           "name": "Mistium",
@@ -230,7 +230,7 @@
       "id": "Rotur",
       "name": "Rotur",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/Rotur.png",
+      "image": "../images/Rotur.png",
       "by": [
         {
           "name": "Mistium",
@@ -243,7 +243,7 @@
       "id": "Tables",
       "name": "Tables",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/Tables.png",
+      "image": "../images/Tables.png",
       "by": [
         {
           "name": "Mistium",
@@ -256,7 +256,7 @@
       "id": "WebsocketPlus",
       "name": "WebsocketPlus",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/WebsocketPlus.png",
+      "image": "../images/WebsocketPlus.png",
       "by": [
         {
           "name": "Mistium",
@@ -269,7 +269,7 @@
       "id": "roturVoice",
       "name": "roturVoice",
       "description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
-      "image": "images/roturVoice.png",
+      "image": "../images/roturVoice.png",
       "by": [
         {
           "name": "Mistium",
