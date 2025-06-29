@@ -5,6 +5,7 @@
       "id": "text",
       "name": "Animated Text",
       "gallery": "https://extensions.turbowarp.org/",
+      "ref": "slug",
       "description": "An easy way to display and animate text. Compatible with Scratch Lab's Animated Text experiment.",
       "image":"images/lab/text.svg",
       "by": [
@@ -19,6 +20,7 @@
       "id": "ebAdvancedCostumes",
       "name": "Advanced Costumes",
       "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+      "ref": "slug",
       "description": "",
       "by": [
         {
@@ -32,7 +34,7 @@
       "slug": "async skins",
       "id": "Async Skins",
       "name": "Async Skins",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/Async Skins.png",
       "by": [
         {
@@ -45,7 +47,7 @@
       "slug": "canvas",
       "id": "Canvas",
       "name": "Canvas",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/Canvas.png",
       "by": [
         {
@@ -58,7 +60,7 @@
       "slug": "discordbot",
       "id": "DiscordBot",
       "name": "DiscordBot",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/DiscordBot.png",
       "by": [
         {
@@ -71,7 +73,7 @@
       "slug": "evalplus",
       "id": "EvalPlus",
       "name": "EvalPlus",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/EvalPlus.png",
       "by": [
         {
@@ -84,7 +86,7 @@
       "slug": "github",
       "id": "Github",
       "name": "Github",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/Github.png",
       "by": [
         {
@@ -97,7 +99,7 @@
       "slug": "htmlinputs",
       "id": "HTMLInputs",
       "name": "HTMLInputs",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/HTMLInputs.png",
       "by": [
         {
@@ -110,7 +112,7 @@
       "slug": "iframe+",
       "id": "Iframe+",
       "name": "Iframe+",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/Iframe+.png",
       "by": [
         {
@@ -123,7 +125,7 @@
       "slug": "indexeddb",
       "id": "IndexedDB",
       "name": "IndexedDB",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/IndexedDB.png",
       "by": [
         {
@@ -136,7 +138,7 @@
       "slug": "keyhistory",
       "id": "KeyHistory",
       "name": "KeyHistory",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/KeyHistory.png",
       "by": [
         {
@@ -149,7 +151,7 @@
       "slug": "mediautils",
       "id": "MediaUtils",
       "name": "MediaUtils",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/MediaUtils.png",
       "by": [
         {
@@ -162,7 +164,7 @@
       "slug": "mist's utils",
       "id": "Mist's Utils",
       "name": "Mist's Utils",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/Mist's Utils.png",
       "by": [
         {
@@ -175,7 +177,7 @@
       "slug": "mistfetch",
       "id": "MistFetch",
       "name": "MistFetch",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/MistFetch.png",
       "by": [
         {
@@ -188,7 +190,7 @@
       "slug": "oasm",
       "id": "OASM",
       "name": "OASM",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/OASM.png",
       "by": [
         {
@@ -201,7 +203,7 @@
       "slug": "python",
       "id": "Python",
       "name": "Python",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/Python.png",
       "by": [
         {
@@ -214,7 +216,7 @@
       "slug": "rdf",
       "id": "RDF",
       "name": "RDF",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/RDF.png",
       "by": [
         {
@@ -227,7 +229,7 @@
       "slug": "rotur",
       "id": "Rotur",
       "name": "Rotur",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/Rotur.png",
       "by": [
         {
@@ -240,7 +242,7 @@
       "slug": "tables",
       "id": "Tables",
       "name": "Tables",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/Tables.png",
       "by": [
         {
@@ -253,7 +255,7 @@
       "slug": "websocketplus",
       "id": "WebsocketPlus",
       "name": "WebsocketPlus",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/WebsocketPlus.png",
       "by": [
         {
@@ -266,7 +268,7 @@
       "slug": "roturvoice",
       "id": "roturVoice",
       "name": "roturVoice",
-      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "ref": "name","description": "","gallery": "https://extensions.mistium.com/featured/",
       "image": "images/roturVoice.png",
       "by": [
         {
