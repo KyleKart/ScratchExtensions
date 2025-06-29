@@ -16,21 +16,7 @@
         }
       ]
     },
-    {
-      "slug": "advcostumes",
-      "id": "ebAdvancedCostumes",
-      "name": "Advanced Costumes",
-      "tags": ["eb"],
-      "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
-      "ref": "slug",
-      "description": "",
-      "by": [
-        {
-          "name": "Elmo Bear",
-          "link": null
-        }
-      ]
-    },
+
     {
     "slug": "pitchano",
     "id": "pitchano",
@@ -38,22 +24,24 @@
     "tags": ["eb"],
     "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
     "ref": "slug",
+    "image": "banners/pitchano.svg",
     "description": "Converts piano note numbers to pitch numbers. May be off by a minor amount.",
     "by": [{"name": "Elmo Bear", "link": null}]
   },
   {
     "slug": "legacy",
-    "id": "legacyBlocks",
+    "id": "scratchbeta",
     "name": "Legacy Blocks",
     "tags": ["eb"],
     "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
     "ref": "slug",
+    "image": "banners/legacy.svg",
     "description": "Recreations of old blocks from early and beta versions of Scratch.",
     "by": [{"name": "Elmo Bear", "link": null}]
   },
   {
     "slug": "xtra",
-    "id": "xtraBlocks",
+    "id": "ebxtrablocks",
     "name": "Extra Blocks",
     "tags": ["eb"],
     "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
@@ -63,7 +51,7 @@
   },
   {
     "slug": "theme-color",
-    "id": "themeColor",
+    "id": "themecolor",
     "name": "Theme Color",
     "tags": ["eb"],
     "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
@@ -73,7 +61,7 @@
   },
   {
     "slug": "titlebar",
-    "id": "menuBarChanger",
+    "id": "titlebar",
     "name": "Menu-bar Changer",
     "tags": ["eb"],
     "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
@@ -83,7 +71,7 @@
   },
   {
     "slug": "keyremote",
-    "id": "keyRemote",
+    "id": "KeyRemoteEB",
     "name": "Key Remote",
     "tags": ["eb"],
     "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
@@ -103,7 +91,7 @@
   },
   {
     "slug": "clipboardX",
-    "id": "clipboardX",
+    "id": "sbxclipboard",
     "name": "Clipboard",
     "tags": ["eb"],
     "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
@@ -113,9 +101,9 @@
   },
   {
     "slug": "jsonX",
-    "id": "jsonX",
+    "id": "sbxjson",
     "name": "JSON",
-    "tags": ["eb"],
+    "tags": ["eb", "x3n"],
     "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
     "ref": "slug",
     "description": "A X3non extension with tools for parsing, reading, and handling JSON data. Uses X3non-only block types.",
@@ -123,9 +111,9 @@
   },
   {
     "slug": "commentsX",
-    "id": "commentsX",
+    "id": "sbxcommentblocks",
     "name": "Comment Blocks",
-    "tags": ["eb"],
+    "tags": ["eb", "x3n"],
     "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
     "ref": "slug",
     "description": "A X3non extension for adding comments nested inside of your code. Uses X3non-only block types.",
