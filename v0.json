@@ -20,7 +20,7 @@
       "slug": "advcostumes",
       "id": "ebAdvancedCostumes",
       "name": "Advanced Costumes",
-      "tags": ["tw"],
+      "tags": ["eb"],
       "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
       "ref": "slug",
       "description": "",
@@ -31,12 +31,112 @@
         }
       ]
     },
+    {
+    "slug": "pitchano",
+    "id": "pitchano",
+    "name": "Pitchano",
+    "tags": ["eb"],
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    "ref": "slug",
+    "description": "Converts piano note numbers to pitch numbers. May be off by a minor amount.",
+    "by": [{"name": "Elmo Bear", "link": null}]
+  },
+  {
+    "slug": "legacy",
+    "id": "legacyBlocks",
+    "name": "Legacy Blocks",
+    "tags": ["eb"],
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    "ref": "slug",
+    "description": "Recreations of old blocks from early and beta versions of Scratch.",
+    "by": [{"name": "Elmo Bear", "link": null}]
+  },
+  {
+    "slug": "xtra",
+    "id": "xtraBlocks",
+    "name": "Extra Blocks",
+    "tags": ["eb"],
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    "ref": "slug",
+    "description": "Vanilla-compatible modded custom blocks with fancy menus and inputs.",
+    "by": [{"name": "Elmo Bear", "link": null}]
+  },
+  {
+    "slug": "theme-color",
+    "id": "themeColor",
+    "name": "Theme Color",
+    "tags": ["eb"],
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    "ref": "slug",
+    "description": "Dynamically change your browser theme! Exclusive to PWAs and supported browsers like Vivaldi.",
+    "by": [{"name": "Elmo Bear", "link": null}]
+  },
+  {
+    "slug": "titlebar",
+    "id": "menuBarChanger",
+    "name": "Menu-bar Changer",
+    "tags": ["eb"],
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    "ref": "slug",
+    "description": "An extension that rearranges the TW menu-bar options to how I think they should be.",
+    "by": [{"name": "Elmo Bear", "link": null}]
+  },
+  {
+    "slug": "keyremote",
+    "id": "keyRemote",
+    "name": "Key Remote",
+    "tags": ["eb"],
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    "ref": "slug",
+    "description": "A key detection extension designed specifically for remotes including Bluetooth ones.",
+    "by": [{"name": "Elmo Bear", "link": null}]
+  },
+    {
+    "slug": "advcostumes",
+    "id": "ebAdvancedCostumes",
+    "name": "Advanced Costumes",
+    "tags": ["eb"],
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    "ref": "slug",
+    "description": "An extension for appending text, shapes, and images to an SVG costume.",
+    "by": [{"name": "Elmo Bear", "link": null}]
+  },
+  {
+    "slug": "clipboardX",
+    "id": "clipboardX",
+    "name": "Clipboard",
+    "tags": ["eb"],
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    "ref": "slug",
+    "description": "A ScratchX compatible extension for interacting with the clipboard. Has known issues in browsers like Pale Moon.",
+    "by": [{"name": "Elmo Bear", "link": null}]
+  },
+  {
+    "slug": "jsonX",
+    "id": "jsonX",
+    "name": "JSON",
+    "tags": ["eb"],
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    "ref": "slug",
+    "description": "A X3non extension with tools for parsing, reading, and handling JSON data. Uses X3non-only block types.",
+    "by": [{"name": "Elmo Bear", "link": null}]
+  },
+  {
+    "slug": "commentsX",
+    "id": "commentsX",
+    "name": "Comment Blocks",
+    "tags": ["eb"],
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    "ref": "slug",
+    "description": "A X3non extension for adding comments nested inside of your code. Uses X3non-only block types.",
+    "by": [{"name": "Elmo Bear", "link": null}]
+  },
 
     {
       "slug": "async skins",
       "id": "Async Skins",
       "name": "Async Skins",
-      "tags": ["tw", "mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/Async Skins.png",
       "by": [
         {
@@ -49,7 +149,7 @@
       "slug": "canvas",
       "id": "Canvas",
       "name": "Canvas",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/Canvas.png",
       "by": [
         {
@@ -62,7 +162,7 @@
       "slug": "discordbot",
       "id": "DiscordBot",
       "name": "DiscordBot",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/DiscordBot.png",
       "by": [
         {
@@ -75,7 +175,7 @@
       "slug": "evalplus",
       "id": "EvalPlus",
       "name": "EvalPlus",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/EvalPlus.png",
       "by": [
         {
@@ -88,7 +188,7 @@
       "slug": "github",
       "id": "Github",
       "name": "Github",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/Github.png",
       "by": [
         {
@@ -101,7 +201,7 @@
       "slug": "htmlinputs",
       "id": "HTMLInputs",
       "name": "HTMLInputs",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/HTMLInputs.png",
       "by": [
         {
@@ -114,7 +214,7 @@
       "slug": "iframe+",
       "id": "Iframe+",
       "name": "Iframe+",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/Iframe+.png",
       "by": [
         {
@@ -127,7 +227,7 @@
       "slug": "indexeddb",
       "id": "IndexedDB",
       "name": "IndexedDB",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/IndexedDB.png",
       "by": [
         {
@@ -140,7 +240,7 @@
       "slug": "keyhistory",
       "id": "KeyHistory",
       "name": "KeyHistory",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/KeyHistory.png",
       "by": [
         {
@@ -153,7 +253,7 @@
       "slug": "mediautils",
       "id": "MediaUtils",
       "name": "MediaUtils",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/MediaUtils.png",
       "by": [
         {
@@ -166,7 +266,7 @@
       "slug": "mist's utils",
       "id": "Mist's Utils",
       "name": "Mist's Utils",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/Mist's Utils.png",
       "by": [
         {
@@ -179,7 +279,7 @@
       "slug": "mistfetch",
       "id": "MistFetch",
       "name": "MistFetch",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/MistFetch.png",
       "by": [
         {
@@ -192,7 +292,7 @@
       "slug": "oasm",
       "id": "OASM",
       "name": "OASM",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/OASM.png",
       "by": [
         {
@@ -205,7 +305,7 @@
       "slug": "python",
       "id": "Python",
       "name": "Python",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/Python.png",
       "by": [
         {
@@ -218,7 +318,7 @@
       "slug": "rdf",
       "id": "RDF",
       "name": "RDF",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/RDF.png",
       "by": [
         {
@@ -231,7 +331,7 @@
       "slug": "rotur",
       "id": "Rotur",
       "name": "Rotur",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/Rotur.png",
       "by": [
         {
@@ -244,7 +344,7 @@
       "slug": "tables",
       "id": "Tables",
       "name": "Tables",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/Tables.png",
       "by": [
         {
@@ -257,7 +357,7 @@
       "slug": "websocketplus",
       "id": "WebsocketPlus",
       "name": "WebsocketPlus",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/WebsocketPlus.png",
       "by": [
         {
@@ -270,7 +370,7 @@
       "slug": "roturvoice",
       "id": "roturVoice",
       "name": "roturVoice",
-      "tags": ["mistium", "tw"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
+      "tags": ["mistium"],"description": "","gallery": "https://extensions.mistium.com/featured/","ref": "name",
       "image": "../images/roturVoice.png",
       "by": [
         {
