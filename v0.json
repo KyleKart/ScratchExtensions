@@ -26,6 +26,254 @@
           "link": null
         }
       ]
+    },
+
+    {
+      "slug": "async skins",
+      "id": "Async Skins",
+      "name": "Async Skins",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/Async Skins.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "canvas",
+      "id": "Canvas",
+      "name": "Canvas",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/Canvas.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "discordbot",
+      "id": "DiscordBot",
+      "name": "DiscordBot",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/DiscordBot.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "evalplus",
+      "id": "EvalPlus",
+      "name": "EvalPlus",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/EvalPlus.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "github",
+      "id": "Github",
+      "name": "Github",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/Github.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "htmlinputs",
+      "id": "HTMLInputs",
+      "name": "HTMLInputs",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/HTMLInputs.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "iframe+",
+      "id": "Iframe+",
+      "name": "Iframe+",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/Iframe+.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "indexeddb",
+      "id": "IndexedDB",
+      "name": "IndexedDB",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/IndexedDB.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "keyhistory",
+      "id": "KeyHistory",
+      "name": "KeyHistory",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/KeyHistory.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "mediautils",
+      "id": "MediaUtils",
+      "name": "MediaUtils",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/MediaUtils.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "mist's utils",
+      "id": "Mist's Utils",
+      "name": "Mist's Utils",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/Mist's Utils.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "mistfetch",
+      "id": "MistFetch",
+      "name": "MistFetch",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/MistFetch.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "oasm",
+      "id": "OASM",
+      "name": "OASM",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/OASM.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "python",
+      "id": "Python",
+      "name": "Python",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/Python.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "rdf",
+      "id": "RDF",
+      "name": "RDF",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/RDF.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "rotur",
+      "id": "Rotur",
+      "name": "Rotur",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/Rotur.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "tables",
+      "id": "Tables",
+      "name": "Tables",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/Tables.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "websocketplus",
+      "id": "WebsocketPlus",
+      "name": "WebsocketPlus",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/WebsocketPlus.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
+    },
+    {
+      "slug": "roturvoice",
+      "id": "roturVoice",
+      "name": "roturVoice",
+      "description": "","gallery": "https://extensions.mistium.com/featured/",
+      "image": "images/roturVoice.png",
+      "by": [
+        {
+          "name": "Mistium",
+          "link": "https://github.com/Mistium"
+        }
+      ]
     }
   ]
 }
