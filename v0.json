@@ -60,16 +60,6 @@
     "by": [{"name": "Elmo Bear", "link": null}]
   },
   {
-    "slug": "titlebar",
-    "id": "titlebar",
-    "name": "Menu-bar Changer",
-    "tags": ["eb"],
-    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
-    "ref": "slug",
-    "description": "An extension that rearranges the TW menu-bar options to how I think they should be.",
-    "by": [{"name": "Elmo Bear", "link": null}]
-  },
-  {
     "slug": "keyremote",
     "id": "KeyRemoteEB",
     "name": "Key Remote",
