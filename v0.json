@@ -52,7 +52,7 @@
     "description": "A key detection extension designed specifically for remotes including Bluetooth ones.",
     "by": [{"name": "Elmo Bear", "link": null}]
   },
-    {
+  {
     "slug": "advcostumes",
     "id": "ebAdvancedCostumes",
     "name": "Advanced Costumes",
@@ -60,6 +60,16 @@
     "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
     "ref": "slug",
     "description": "An extension for appending text, shapes, and images to an SVG costume.",
+    "by": [{"name": "Elmo Bear", "link": null}]
+  },
+  {
+    "slug": "webcostume",
+    "id": "ebwebcostume",
+    "name": "HTML Costumes",
+    "tags": ["eb"],
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    "ref": "slug",
+    "description": "An extension for using HTML in an SVG costume.",
     "by": [{"name": "Elmo Bear", "link": null}]
   },
   {
