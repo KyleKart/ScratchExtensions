@@ -73,6 +73,16 @@
     "by": [{"name": "Elmo Bear", "link": null}]
   },
   {
+    "slug": "varray",
+    "id": "ebvarray",
+    "name": "Varray",
+    "tags": ["eb"],
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    "ref": "slug",
+    "description": "An extension for handling variables like lists.",
+    "by": [{"name": "Elmo Bear", "link": null}]
+  },
+  {
     "slug": "clipboardX",
     "id": "sbxclipboard",
     "name": "Clipboard",
