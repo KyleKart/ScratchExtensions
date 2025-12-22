@@ -5,7 +5,7 @@
     const runtime = vm.runtime;
 
     class Varray {
-        constructor() {}
+        constructor() { }
 
         getInfo() {
             return {
@@ -13,7 +13,7 @@
                 name: "Varray",
                 color1: "#FF8C1A",
                 blocks: [
-                     {
+                    {
                         opcode: 'setVarTo',
                         blockType: Scratch.BlockType.COMMAND,
                         text: 'set [VARIABLE] to [ITEM]',
@@ -41,6 +41,15 @@
                         extensions: ["colours_data"],
                         arguments: {
                             ITEM: { type: Scratch.ArgumentType.NUMBER, defaultValue: 1 },
+                            VARIABLE: { type: Scratch.ArgumentType.STRING, menu: "variableMenu" }
+                        },
+                    },
+                    {
+                        opcode: 'deleteAllOfVar',
+                        blockType: Scratch.BlockType.COMMAND,
+                        text: 'delete all of [VARIABLE]',
+                        extensions: ["colours_data"],
+                        arguments: {
                             VARIABLE: { type: Scratch.ArgumentType.STRING, menu: "variableMenu" }
                         },
                     },
@@ -143,17 +152,17 @@
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
                 const value = Scratch.Cast.toString(variable.value);
                 let parsed;
-        
+
                 try {
                     parsed = JSON.parse(value);
                 } catch (e) {
                     parsed = value;
                 }
-        
+
                 if (Array.isArray(parsed)) {
                     return parsed.length;
                 }
-        
+
                 const str = Scratch.Cast.toString(parsed);
                 return str.length;
             } catch (e) {
@@ -161,12 +170,12 @@
                 const value = Scratch.Cast.toString(variable.value);
                 return value.length;
             }
-        }        
-        
+        }
+
         addToVar(args, util) {
             try {
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
-                const value = Scratch.Cast.toString(variable.value);        
+                const value = Scratch.Cast.toString(variable.value);
                 try {
                     let VAR = JSON.parse(value);
                     if (Array.isArray(VAR)) {
@@ -176,19 +185,19 @@
                     }
                 } catch {
                 }
-        
+
                 if (typeof value === "string") {
                     variable.value = value + args.ITEM;
                     return;
                 }
-        
+
                 variable.value = JSON.stringify([args.ITEM]);
-        
+
             } catch {
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
                 variable.value = JSON.stringify([args.ITEM]);
             }
-        }        
+        }
 
         deleteOfVar(args, util) {
             try {
@@ -202,7 +211,24 @@
                         variable.value = JSON.stringify(VAR);
                     }
                 }
-            } catch {}
+            } catch { }
+        }
+        
+        deleteAllOfVar(args, util) {
+            try {
+                const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
+                const value = Scratch.Cast.toString(variable.value);
+
+                try {
+                    const parsed = JSON.parse(value);
+                    if (Array.isArray(parsed)) {
+                        variable.value = JSON.stringify([]);
+                        return;
+                    }
+                } catch { }
+
+                variable.value = "";
+            } catch { }
         }
 
         getItemOfVar(args, util) {
@@ -210,15 +236,15 @@
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
                 const value = variable.value;
                 const index = Number(args.ITEM) - 1;
-        
+
                 let parsed;
-        
+
                 try {
                     parsed = JSON.parse(Scratch.Cast.toString(value));
                 } catch {
                     parsed = Scratch.Cast.toString(value);
                 }
-        
+
                 if (Array.isArray(parsed)) {
                     if (index >= 0 && index < parsed.length) {
                         return parsed[index];
@@ -229,7 +255,7 @@
                         return str.charAt(index);
                     }
                 }
-        
+
                 return "";
             } catch {
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
@@ -237,15 +263,15 @@
                 const index = Number(args.ITEM) - 1;
                 return str.charAt(index) || "";
             }
-        }        
-        
+        }
+
         getItemNumOfVar(args, util) {
             try {
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
                 const value = Scratch.Cast.toString(variable.value);
 
                 let parsed;
-        
+
                 try {
                     parsed = JSON.parse(Scratch.Cast.toString(value));
                 } catch {
@@ -260,7 +286,7 @@
                     const index = parsed.indexOf(args.ITEM);
                     return index >= 0 ? index + 1 : 0;
                 }
-        
+
                 return 0;
             } catch {
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
@@ -270,19 +296,19 @@
                 return index >= 0 ? index + 1 : 0;
             }
         }
-        
+
         varContainsItem(args, util) {
             try {
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
                 const value = Scratch.Cast.toString(variable.value);
                 let parsed = value;
-        
+
                 try {
                     parsed = JSON.parse(value);
                 } catch (e) {
                     parsed = value;
                 }
-        
+
                 const parsedStr = String(parsed);
 
                 if (Array.isArray(parsed)) {
@@ -291,20 +317,20 @@
                 if (typeof parsed === "string" || typeof parsedStr === "string") {
                     return parsedStr.includes(args.ITEM);
                 }
-        
+
                 return false;
             } catch (e) {
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
                 const value = Scratch.Cast.toString(variable.value);
                 return ("" + value).includes(args.ITEM);
             }
-        }        
+        }
 
         insertAtVar(args, util) {
             try {
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
                 const index = Math.max(0, Number(args.NUM) - 1);
-        
+
                 try {
                     let VAR = JSON.parse(variable.value);
                     if (Array.isArray(VAR)) {
@@ -315,31 +341,31 @@
                     }
                 } catch {
                 }
-        
+
                 let str = Scratch.Cast.toString(variable.value);
                 const safeIndex = Math.min(str.length, index);
                 const result = str.slice(0, safeIndex) + args.ITEM + str.slice(safeIndex);
                 variable.value = result;
-        
+
             } catch {
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
                 variable.value = args.ITEM;
             }
-        }        
+        }
 
         replaceItemOfVar(args, util) {
             try {
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
                 const value = variable.value;
                 const index = args.NUM - 1;
-        
+
                 let parsed;
                 try {
                     parsed = JSON.parse(Scratch.Cast.toString(value));
                 } catch {
                     parsed = Scratch.Cast.toString(value);
                 }
-        
+
                 if (Array.isArray(parsed)) {
                     if (index >= 0 && index < parsed.length) {
                         parsed[index] = args.ITEM;
@@ -352,23 +378,23 @@
                         variable.value = newStr;
                     }
                 }
-            } catch {}
-        }        
+            } catch { }
+        }
         varAsString(args, util) {
             try {
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
                 const value = Scratch.Cast.toString(variable.value);
                 let parsed = value;
-        
+
                 try {
                     parsed = JSON.parse(Scratch.Cast.toString(value));
                 } catch {
                 }
-        
+
                 if (Array.isArray(parsed)) {
                     return parsed.join("");
                 }
-        
+
                 return "" + parsed;
             } catch (e) {
                 return null;
@@ -378,9 +404,9 @@
             try {
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
                 variable.value = args.ITEM;
-            } catch {}
+            } catch { }
         }
-             
+
     }
 
     Scratch.extensions.register(new Varray());
