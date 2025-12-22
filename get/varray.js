@@ -125,6 +125,17 @@
                             VARIABLE: { type: Scratch.ArgumentType.STRING, menu: "variableMenu" }
                         },
                     },
+                    {
+                        opcode: 'varAsType',
+                        blockType: Scratch.BlockType.REPORTER,
+                        text: 'get [VARIABLE] as [TYPE]',
+                        extensions: ["colours_data"],
+                        hideFromPalette: true,
+                        arguments: {
+                            VARIABLE: { type: Scratch.ArgumentType.STRING, menu: "variableMenu" },
+                            TYPE: { type: Scratch.ArgumentType.STRING, menu: "types" }
+                        },
+                    },
                 ],
                 menus: {
                     variableMenu: {
@@ -133,7 +144,7 @@
                     },
                     types: {
                         acceptReporters: true,
-                        items: ["array", "string"]
+                        items: ["string", "json"]
                     },
                 }
             };
@@ -213,7 +224,7 @@
                 }
             } catch { }
         }
-        
+
         deleteAllOfVar(args, util) {
             try {
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
@@ -380,6 +391,7 @@
                 }
             } catch { }
         }
+
         varAsString(args, util) {
             try {
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
@@ -400,6 +412,36 @@
                 return null;
             }
         }
+
+        varAsType(args, util) {
+            try {
+                const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
+                const value = Scratch.Cast.toString(variable.value);
+
+                let parsed;
+                try {
+                    parsed = JSON.parse(value);
+                } catch {
+                    parsed = value;
+                }
+
+                if (args.TYPE === "json") {
+                    if (Array.isArray(parsed) || (typeof parsed === "object" && parsed !== null)) {
+                        return parsed;
+                    } else {
+                        return [parsed];
+                    }
+                } else {
+                    if (Array.isArray(parsed)) {
+                        return parsed.join("");
+                    }
+                    return "" + parsed;
+                }
+            } catch {
+                return args.TYPE === "json" ? null : "";
+            }
+        }
+
         setVarTo(args, util) {
             try {
                 const variable = util.target.lookupVariableByNameAndType(args.VARIABLE, "");
