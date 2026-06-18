@@ -107,6 +107,50 @@ class extension {
               }
             }
           }
+        },
+        {
+          opcode: "setList",
+          blockType: Scratch.BlockType.COMMAND,
+          text: "set list [LIST] to [ITEMS]",
+          extensions: ["colours_data_lists"],
+          arguments: {
+            LIST: {
+              type: Scratch.ArgumentType.LIST,
+            },
+            ITEMS: {
+              type: Scratch.ArgumentType.EXTENDABLE,
+              text: "[VAL]",
+              minInputs: 1,
+              arguments: {
+                VAL: {
+                  type: Scratch.ArgumentType.STRING,
+                  defaultValue: "thing"
+                }
+              }
+            }
+          }
+        },
+        {
+          opcode: "addList",
+          blockType: Scratch.BlockType.COMMAND,
+          text: "add [ITEMS] to [LIST]",
+          extensions: ["colours_data_lists"],
+          arguments: {
+            LIST: {
+              type: Scratch.ArgumentType.LIST,
+            },
+            ITEMS: {
+              type: Scratch.ArgumentType.EXTENDABLE,
+              text: "[VAL]",
+              minInputs: 1,
+              arguments: {
+                VAL: {
+                  type: Scratch.ArgumentType.STRING,
+                  defaultValue: "thing"
+                }
+              }
+            }
+          }
         }
       ]
     };
@@ -156,6 +200,46 @@ class extension {
     } else {
       vm.runtime.ext_scratch3_looks.think({ MESSAGE: Scratch.Cast.toString(args.TEXT) }, { target });
     }
+  }
+
+  setList(args, util) {
+    const list = util.target.lookupVariableByNameAndType(args.LIST, "list");
+
+    if (!list) return;
+
+    let array;
+    try {
+      array = util.extendableToArray(args, "ITEMS", "VAL");
+    } catch (error) {
+      return;
+    }
+
+    if (!Array.isArray(array)) return;
+
+    list.value = array;
+
+    list._monitorUpToDate = false;
+  }
+
+  addList(args, util) {
+    const list = util.target.lookupVariableByNameAndType(args.LIST, "list");
+
+    if (!list) return;
+
+    let array;
+    try {
+      array = util.extendableToArray(args, "ITEMS", "VAL");
+    } catch (error) {
+      return;
+    }
+
+    if (!Array.isArray(array)) return;
+
+    array.forEach(item => {
+      list.value.push(Scratch.Cast.toString(item));
+    });
+
+    list._monitorUpToDate = false;
   }
 }
 
