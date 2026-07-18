@@ -27,14 +27,31 @@
                 blocks: [
                     {
                         opcode: 'convert',
-                        blockType: Scratch.BlockType.OBJECT || Scratch.BlockType.REPORTER,
-                        blockShape: Scratch.BlockShape.PLUS,
+                        blockType: Scratch.BlockType.REPORTER,
+                        exemptFromNormalization: true,
                         text: 'JSON5 [TEXT] to JSON',
                         arguments: {
-                            TEXT: {
-                                type: Scratch.ArgumentType.STRING,
-                                defaultValue: "{foo: 'bar'}"
-                            }
+                            TEXT: { type: Scratch.ArgumentType.STRING, defaultValue: "{foo: 'bar'}" }
+                        }
+                    },
+                    {
+                        opcode: 'toObject',
+                        blockType: Scratch.BlockType.OBJECT || Scratch.BlockType.REPORTER,
+                        blockShape: Scratch.BlockShape.PLUS,
+                        exemptFromNormalization: true,
+                        text: 'JSON5 [TEXT] as object',
+                        arguments: {
+                            TEXT: { type: Scratch.ArgumentType.STRING, defaultValue: "{foo: 'bar'}" }
+                        }
+                    },
+                    {
+                        opcode: 'toArray',
+                        blockType: Scratch.BlockType.ARRAY || Scratch.BlockType.REPORTER,
+                        blockShape: Scratch.BlockShape.SQUARE,
+                        exemptFromNormalization: true,
+                        text: 'JSON5 [TEXT] as array',
+                        arguments: {
+                            TEXT: { type: Scratch.ArgumentType.STRING, defaultValue: "[1, 2, 3]" }
                         }
                     },
                     {
@@ -80,11 +97,29 @@
         async convert(args) {
             try {
                 await loadJSON5();
-                const obj = JSON5.parse(args.TEXT);
-                return this.shouldStringify ? JSON.stringify(obj) : obj;
+                const inp = JSON5.parse(args.TEXT);
+                return this.shouldStringify ? JSON.stringify(inp) : inp;
             } catch (e) {
                 return "";
             }
+        }
+
+        async toObject(args) {
+            await loadJSON5();
+            const obj = JSON5.parse(args.TEXT);
+            if (typeof obj !== 'object' || obj === null || Array.isArray(obj)) {
+                throw new Error("JSON5: Expected an object");
+            }
+            return this.shouldStringify ? JSON.stringify(obj) : obj;
+        }
+
+        async toArray(args) {
+            await loadJSON5();
+            const arr = JSON5.parse(args.TEXT);
+            if (!Array.isArray(arr)) {
+                throw new Error("JSON5: Expected an array");
+            }
+            return this.shouldStringify ? JSON.stringify(arr) : arr;
         }
 
         async isValid(args) {
