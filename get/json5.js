@@ -16,6 +16,9 @@
     }
 
     class extension {
+        constructor() {
+            this.shouldStringify = true;
+        }
         getInfo() {
             return {
                 id: 'json5converter',
@@ -25,6 +28,7 @@
                     {
                         opcode: 'convert',
                         blockType: Scratch.BlockType.OBJECT || Scratch.BlockType.REPORTER,
+                        blockShape: Scratch.BlockShape.PLUS,
                         text: 'JSON5 [TEXT] to JSON',
                         arguments: {
                             TEXT: {
@@ -54,6 +58,20 @@
                                 defaultValue: "{foo: 'bar'"
                             }
                         }
+                    },
+                    {
+                        blockType: Scratch.BlockType.LABEL,
+                        text: '⚠️ Only use if you know what you\'re doing!',
+                    },
+                    {
+                        opcode: 'stringify',
+                        blockType: Scratch.BlockType.COMMAND,
+                        text: 'stringify all outputs? [BOOL]',
+                        arguments: {
+                            BOOL: {
+                                type: Scratch.ArgumentType.BOOLEAN,
+                            }
+                        }
                     }
                 ]
             };
@@ -63,7 +81,7 @@
             try {
                 await loadJSON5();
                 const obj = JSON5.parse(args.TEXT);
-                return Scratch.BlockType.OBJECT ? obj : JSON.stringify(obj);
+                return this.shouldStringify ? JSON.stringify(obj) : obj;
             } catch (e) {
                 return "";
             }
@@ -87,6 +105,10 @@
             } catch (e) {
                 return e.message;
             }
+        }
+
+        stringify(args) {
+            this.shouldStringify = args.BOOL;
         }
     }
 
