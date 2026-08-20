@@ -151,7 +151,29 @@ class extension {
               }
             }
           }
-        }
+        },
+        {
+          opcode: "setVar",
+          blockType: Scratch.BlockType.COMMAND,
+          text: "set var [VAR] to [ITEMS]",
+          extensions: ["colours_data"],
+          arguments: {
+            VAR: {
+              type: Scratch.ArgumentType.LIST,
+            },
+            ITEMS: {
+              type: Scratch.ArgumentType.EXTENDABLE,
+              text: "[VAL]",
+              minInputs: 1,
+              arguments: {
+                VAL: {
+                  type: Scratch.ArgumentType.STRING,
+                  defaultValue: "thing"
+                }
+              }
+            }
+          }
+        },
       ]
     };
   }
@@ -238,6 +260,25 @@ class extension {
     array.forEach(item => {
       list.value.push(Scratch.Cast.toString(item));
     });
+
+    list._monitorUpToDate = false;
+  }
+
+    setVar(args, util) {
+    const list = util.target.lookupVariableByNameAndType(args.VAR, "");
+
+    if (!list) return;
+
+    let array;
+    try {
+      array = util.extendableToArray(args, "ITEMS", "VAL");
+    } catch (error) {
+      return;
+    }
+
+    if (!Array.isArray(array)) return;
+
+    list.value = array;
 
     list._monitorUpToDate = false;
   }
