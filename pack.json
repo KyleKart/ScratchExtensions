@@ -1,0 +1,101 @@
+
+{
+"information": {
+    "name": "ElmoBear's Extensions",
+    "tag": "elmobear",
+    "source": "https://kylekart.github.io/ScratchExtensions/"
+  },
+  "extensions": [
+  {
+    "slug": "get/pitchano",
+    "id": "pitchano",
+    "name": "Pitchano",
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    
+    "image": "banners/pitchano.svg",
+    "description": "Converts piano note numbers to pitch numbers. May be off by a minor amount.",
+    "by": [{"name": "ElmoBear"}]
+  },
+  {
+    "slug": "get/legacy",
+    "id": "scratchbeta",
+    "name": "Legacy Blocks",
+    
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    
+    "image": "banners/legacy.svg",
+    "description": "Recreations of old blocks from early and beta versions of Scratch.",
+    "by": [{"name": "ElmoBear"}]
+  },
+  {
+    "slug": "get/xtra",
+    "id": "ebxtrablocks",
+    "name": "Extra Blocks",
+    
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    
+    "description": "Vanilla-compatible modded custom blocks with fancy menus and inputs.",
+    "by": [{"name": "ElmoBear"}]
+  },
+  {
+    "slug": "get/theme-color",
+    "id": "themecolor",
+    "name": "Theme Color",
+    
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    
+    "description": "Dynamically change your browser theme! Exclusive to PWAs and supported browsers like Vivaldi.",
+    "by": [{"name": "ElmoBear"}]
+  },
+  {
+    "slug": "get/keyremote",
+    "id": "KeyRemoteEB",
+    "name": "Key Remote",
+    
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    
+    "description": "A key detection extension designed specifically for remotes including Bluetooth ones.",
+    "by": [{"name": "ElmoBear"}]
+  },
+  {
+    "slug": "get/advcostumes",
+    "id": "ebAdvancedCostumes",
+    "name": "Advanced Costumes",
+    
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    
+    "description": "An extension for appending text, shapes, and images to an SVG costume.",
+    "by": [{"name": "ElmoBear"}]
+  },
+  {
+    "slug": "get/webcostume",
+    "id": "ebwebcostume",
+    "name": "HTML Costumes",
+    
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    
+    "description": "An extension for using HTML in an SVG costume.",
+    "by": [{"name": "ElmoBear"}]
+  },
+  {
+    "slug": "get/varray",
+    "id": "ebvarray",
+    "name": "Varray",
+    
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    
+    "description": "An extension for handling variables like lists.",
+    "by": [{"name": "ElmoBear"}]
+  },
+  {
+    "slug": "get/clipboardX",
+    "id": "sbxclipboard",
+    "name": "Clipboard",
+    
+    "gallery": "https://kylekart.github.io/ScratchExtensions/get/",
+    
+    "description": "A ScratchX compatible extension for interacting with the clipboard. Has known issues in browsers like Pale Moon.",
+    "by": [{"name": "ElmoBear"}]
+  }
+  ]
+}
