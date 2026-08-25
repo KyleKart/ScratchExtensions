@@ -21,7 +21,7 @@
         }
         getInfo() {
             return {
-                id: 'json5converter',
+                id: 'ebjson5',
                 name: 'JSON5',
                 color1: '#4363A6',
                 blocks: [

@@ -94,7 +94,43 @@
     "name": "TI-Basic",
     
     
-    "description": "An extension for handling variables like lists.",
+    "description": "An extension for executing lines of TI-Basic.",
+    "by": [{"name": "ElmoBear"}]
+  },
+  {
+    "slug": "get/varcontrol",
+    "id": "ebultravar",
+    "name": "Variable Control",
+    
+    
+    "description": "Allows for advanced control of variables.",
+    "by": [{"name": "ElmoBear"}]
+  },
+  {
+    "slug": "get/extended",
+    "id": "extended",
+    "name": "Extended",
+    
+    
+    "description": "Various blocks that i've made extendable bc yes.",
+    "by": [{"name": "ElmoBear"}]
+  },
+  {
+    "slug": "get/blocks",
+    "id": "ebblockeditor",
+    "name": "Block Manipulator",
+    
+    
+    "description": "Various blocks that i've made extendable bc yes.",
+    "by": [{"name": "ElmoBear"}]
+  },
+  {
+    "slug": "get/json5",
+    "id": "ebjosn5",
+    "name": "JSON5",
+    
+    
+    "description": "An extension that let's you turn JSON5 into valid JSON for use with your favourite JSON implementations.",
     "by": [{"name": "ElmoBear"}]
   }
   ]
