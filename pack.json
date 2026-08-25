@@ -11,7 +11,7 @@
     "id": "pitchano",
     "name": "Pitchano",
     
-    "image": "banners/pitchano.svg",
+    "image": "get/banners/pitchano.svg",
     "description": "Converts piano note numbers to pitch numbers. May be off by a minor amount.",
     "by": [{"name": "ElmoBear"}]
   },
@@ -21,7 +21,7 @@
     "name": "Legacy Blocks",
     
     
-    "image": "banners/legacy.svg",
+    "image": "get/banners/legacy.svg",
     "description": "Recreations of old blocks from early and beta versions of Scratch.",
     "by": [{"name": "ElmoBear"}]
   },
