@@ -159,7 +159,7 @@ class extension {
           extensions: ["colours_data"],
           arguments: {
             VAR: {
-              type: Scratch.ArgumentType.LIST,
+              type: Scratch.ArgumentType.VARIABLE,
             },
             ITEMS: {
               type: Scratch.ArgumentType.EXTENDABLE,
