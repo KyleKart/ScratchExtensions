@@ -53,6 +53,15 @@
     "by": [{"name": "ElmoBear"}]
   },
   {
+    "slug": "get/clipboardX",
+    "id": "sbxclipboard",
+    "name": "Clipboard",
+    
+    
+    "description": "A ScratchX compatible extension for interacting with the clipboard. Has known issues in browsers like Pale Moon.",
+    "by": [{"name": "ElmoBear"}]
+  },
+  {
     "slug": "get/advcostumes",
     "id": "ebAdvancedCostumes",
     "name": "Advanced Costumes",
@@ -77,15 +86,6 @@
     
     
     "description": "An extension for handling variables like lists.",
-    "by": [{"name": "ElmoBear"}]
-  },
-  {
-    "slug": "get/clipboardX",
-    "id": "sbxclipboard",
-    "name": "Clipboard",
-    
-    
-    "description": "A ScratchX compatible extension for interacting with the clipboard. Has known issues in browsers like Pale Moon.",
     "by": [{"name": "ElmoBear"}]
   }
   ]
