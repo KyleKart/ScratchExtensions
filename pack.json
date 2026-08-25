@@ -58,7 +58,7 @@
     "name": "Clipboard",
     
     
-    "description": "A ScratchX compatible extension for interacting with the clipboard. Has known issues in browsers like Pale Moon.",
+    "description": "A ScratchX compatible extension for interacting with the clipboard.",
     "by": [{"name": "ElmoBear"}]
   },
   {
@@ -83,6 +83,15 @@
     "slug": "get/varray",
     "id": "ebvarray",
     "name": "Varray",
+    
+    
+    "description": "An extension for handling variables like lists.",
+    "by": [{"name": "ElmoBear"}]
+  },
+  {
+    "slug": "get/tibasic",
+    "id": "ebTIBASIC",
+    "name": "TI-Basic",
     
     
     "description": "An extension for handling variables like lists.",
