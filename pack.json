@@ -121,7 +121,7 @@
     "name": "Block Manipulator",
     
     
-    "description": "Various blocks that i've made extendable bc yes.",
+    "description": "Let's you edit various block properties you normally can't/shouldn't change. Expect bugginess at times.",
     "by": [{"name": "ElmoBear"}]
   },
   {
