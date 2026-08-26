@@ -15,24 +15,51 @@
     document.body.removeChild(link);
   }
 
-  function filterExtensions() {
-    let searchInput = document.getElementById('search-input').value.toLowerCase();
-
+function filterExtensions() {
+    let hash = window.location.hash;
     let extensions = document.querySelectorAll('.extensions a');
 
-    extensions.forEach(function (extension) {
-      let title = extension.querySelector('h3').textContent.toLowerCase();
-      let description = extension.querySelector('p').textContent.toLowerCase();
+    if (hash && hash.length > 1) {
+      let queryTag = hash.substring(1).toLowerCase();
 
+      extensions.forEach(function (extension) {
+        let matchesTag = false;
+        let tagSpans = extension.querySelectorAll('.tag');
 
-      let matchesSearch = title.includes(searchInput) || description.includes(searchInput);
-      if (matchesSearch) {
-        extension.style.display = '';
-      } else {
-        extension.style.display = 'none';
-      }
-    });
+        tagSpans.forEach(function (span) {
+          Array.from(span.classList).forEach(function (cls) {
+            if (cls.toLowerCase() === queryTag) {
+              matchesTag = true;
+            }
+          });
+        });
+
+        if (matchesTag) {
+          extension.style.display = '';
+        } else {
+          extension.style.display = 'none';
+        }
+      });
+    } else {
+      let searchInput = document.getElementById('search-input').value.toLowerCase();
+
+      extensions.forEach(function (extension) {
+        let title = extension.querySelector('h3').textContent.toLowerCase();
+        let description = extension.querySelector('p').textContent.toLowerCase();
+
+        let matchesSearch = title.includes(searchInput) || description.includes(searchInput);
+        if (matchesSearch) {
+          extension.style.display = '';
+        } else {
+          extension.style.display = 'none';
+        }
+      });
+    }
   }
+
+  // Run filter whenever the URL hash changes or the page loads
+  window.addEventListener('DOMContentLoaded', filterExtensions);
+  window.addEventListener('hashchange', filterExtensions);
 </script>
 <style>
   .search-bar {
