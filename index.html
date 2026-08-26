@@ -17,15 +17,17 @@
 
 function filterExtensions() {
     let hash = window.location.hash;
+    let searchInput = document.getElementById('search-input').value.toLowerCase().trim();
     let extensions = document.querySelectorAll('.extensions a');
 
-    if (hash && hash.length > 1) {
-      let queryTag = hash.substring(1).toLowerCase();
+    let queryTag = (hash && hash.length > 1) ? hash.substring(1).toLowerCase() : '';
 
-      extensions.forEach(function (extension) {
-        let matchesTag = false;
+    extensions.forEach(function (extension) {
+      let matchesTag = true;
+
+      if (queryTag !== '') {
+        matchesTag = false;
         let tagSpans = extension.querySelectorAll('.tag');
-
         tagSpans.forEach(function (span) {
           Array.from(span.classList).forEach(function (cls) {
             if (cls.toLowerCase() === queryTag) {
@@ -33,28 +35,21 @@ function filterExtensions() {
             }
           });
         });
+      }
 
-        if (matchesTag) {
-          extension.style.display = '';
-        } else {
-          extension.style.display = 'none';
-        }
-      });
-    } else {
-      let searchInput = document.getElementById('search-input').value.toLowerCase();
-
-      extensions.forEach(function (extension) {
+      let matchesSearch = true;
+      if (matchesTag && searchInput !== '') {
         let title = extension.querySelector('h3').textContent.toLowerCase();
         let description = extension.querySelector('p').textContent.toLowerCase();
+        matchesSearch = title.includes(searchInput) || description.includes(searchInput);
+      }
 
-        let matchesSearch = title.includes(searchInput) || description.includes(searchInput);
-        if (matchesSearch) {
-          extension.style.display = '';
-        } else {
-          extension.style.display = 'none';
-        }
-      });
-    }
+      if (matchesTag && matchesSearch) {
+        extension.style.display = '';
+      } else {
+        extension.style.display = 'none';
+      }
+    });
   }
 
   window.addEventListener('DOMContentLoaded', filterExtensions);
