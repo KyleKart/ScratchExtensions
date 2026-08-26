@@ -3,39 +3,60 @@
 <meta content="Scratch extensions that I have made which I am proud of or happy with!" property="og:description">
 <meta content="https://kylekart.github.io/ScratchExtensions/" property="og:url">
 <script>
-  function downloadFile() {
-    const url = "https://kylekart.github.io/ScratchExtensions/get/pitchano.js";
-    const fileName = "pitchano.js";
-    const link = document.createElement("a");
-    link.setAttribute("href", url);
-    link.setAttribute("download", fileName);
-    link.style.display = "none";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+const tagNames = {
+    "tw": "TurboWarp",
+    "nb": "NitroBolt",
+    "pm": "PenguinMod",
+    "sx": "ScratchX",
+    "x3": "X3non"
+  };
+
+  function extensionHasTag(extension, queryTag) {
+    if (!queryTag) return true;
+    let matchesTag = false;
+    let tagSpans = extension.querySelectorAll('.tag');
+    tagSpans.forEach(function (span) {
+      Array.from(span.classList).forEach(function (cls) {
+        if (cls.toLowerCase() === queryTag) {
+          matchesTag = true;
+        }
+      });
+    });
+    return matchesTag;
   }
 
-function filterExtensions() {
+  function updateHeaderAndTooltips(queryTag) {
+    const headerTitleDiv = document.querySelector('.section.header h1 div');
+    const defaultTitle = "ElmoBear's Extensions";
+
+    if (queryTag && tagNames[queryTag]) {
+      headerTitleDiv.textContent = `ElmoBear's ${tagNames[queryTag]} Extensions`;
+    } else {
+      headerTitleDiv.textContent = defaultTitle;
+    }
+
+    document.querySelectorAll('.tag').forEach(span => {
+      for (let cls of span.classList) {
+        let lowerCls = cls.toLowerCase();
+        if (tagNames[lowerCls]) {
+          span.setAttribute('title', tagNames[lowerCls]);
+          break;
+        }
+      }
+    });
+  }
+
+  function filterExtensions() {
     let hash = window.location.hash;
     let searchInput = document.getElementById('search-input').value.toLowerCase().trim();
     let extensions = document.querySelectorAll('.extensions a');
 
     let queryTag = (hash && hash.length > 1) ? hash.substring(1).toLowerCase() : '';
 
-    extensions.forEach(function (extension) {
-      let matchesTag = true;
+    updateHeaderAndTooltips(queryTag);
 
-      if (queryTag !== '') {
-        matchesTag = false;
-        let tagSpans = extension.querySelectorAll('.tag');
-        tagSpans.forEach(function (span) {
-          Array.from(span.classList).forEach(function (cls) {
-            if (cls.toLowerCase() === queryTag) {
-              matchesTag = true;
-            }
-          });
-        });
-      }
+    extensions.forEach(function (extension) {
+      let matchesTag = extensionHasTag(extension, queryTag);
 
       let matchesSearch = true;
       if (matchesTag && searchInput !== '') {
